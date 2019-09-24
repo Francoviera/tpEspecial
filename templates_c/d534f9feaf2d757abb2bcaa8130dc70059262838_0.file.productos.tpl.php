@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-24 21:55:25
-  from 'C:\xampp\htdocs\tpEspecial\templates\productos.tpl' */
+/* Smarty version 3.1.33, created on 2019-09-24 20:51:24
+  from 'C:\xampp\htdocs\tpEspecialGit\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8a74ad67b6f5_62546740',
+  'unifunc' => 'content_5d8a65ac6a3a22_76994093',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0f6866e3eb90e65af1739c3f69cd4ffa7ca0e0c3' => 
+    'd534f9feaf2d757abb2bcaa8130dc70059262838' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\productos.tpl',
-      1 => 1569354914,
+      0 => 'C:\\xampp\\htdocs\\tpEspecialGit\\templates\\productos.tpl',
+      1 => 1569036751,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d8a74ad67b6f5_62546740 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d8a65ac6a3a22_76994093 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerProductos.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -86,7 +86,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div class="col-xs-12 col-md-6">
             <button class="btn btn-outline-primary btnAgregar" type="button">agregar Producto</button>
             <div class="agregar">
-                <form action="agregar" method="post">
+                <form action="productos/agregar" method="post">
                     <h4>Ingrese producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">
@@ -98,7 +98,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
             <button class="btn btn-outline-primary btnEditar" type="button">editar Producto</button>
             <div class="editar d-none">
-                <form action="editar" method="post">
+                <form action="productos/editar/" method="post">
                     <h4>Editar producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">

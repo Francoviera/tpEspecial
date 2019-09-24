@@ -1,33 +1,42 @@
 <?php
     require_once('controllers/productos.controller.php');
-    require_once('controllers/productos.controller.php');
+    require_once('controllers/login.controller.php');
 
     if($_GET["action"] === ''){
-        $_GET['action'] = 'home';
+        $_GET['action'] = 'login';
     }
     else {
         $partesURL= explode("/", $_GET["action"]);
 
       switch ($partesURL[0]) {
+        case 'login':
+            $controller = new LoginController();
+            $controller->mostrarLogin();
+
+            break;
         case 'productos':
             $controller = new ProductController();
             $controller->mostrarProductos();
-            
-            if (isset($partesURL[1]) && $partesURL[1] === "editar"){
-                $nombre= $_POST["nombre"];
-                $precio= $_POST["precio"];
-                $cantidad= $_POST["cantidad"];
-                $categoria= $_POST["categoria"];
-                $controller->editarProducto($nombre, $precio, $cantidad, $categoria, $partesURL[2]);
-            }
 
-            if (isset($partesURL[1]) && $partesURL[1] === "agregar"){
+            break;
+        
+        case 'editar':
                 $nombre= $_POST["nombre"];
                 $precio= $_POST["precio"];
                 $cantidad= $_POST["cantidad"];
                 $categoria= $_POST["categoria"];
+                $controller = new ProductController();
+                $controller->editarProducto($nombre, $precio, $cantidad, $categoria, $partesURL[2]);
+            
+            break;
+
+        case 'agregar':
+                $nombre= $_POST["nombre"];
+                $precio= $_POST["precio"];
+                $cantidad= $_POST["cantidad"];
+                $categoria= $_POST["categoria"];
+                $controller = new ProductController();
                 $controller->agregarProducto($nombre, $precio, $cantidad, $categoria);
-            }
 
             break;
         

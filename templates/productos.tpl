@@ -47,7 +47,7 @@
         <div class="col-xs-12 col-md-6">
             <button class="btn btn-outline-primary btnAgregar" type="button">agregar Producto</button>
             <div class="agregar">
-                <form action="productos/agregar" method="post">
+                <form action="agregar" method="post">
                     <h4>Ingrese producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">
@@ -59,7 +59,7 @@
 
             <button class="btn btn-outline-primary btnEditar" type="button">editar Producto</button>
             <div class="editar d-none">
-                <form action="productos/editar/" method="post">
+                <form action="editar" method="post">
                     <h4>Editar producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">

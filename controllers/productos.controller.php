@@ -9,6 +9,7 @@
         private $view;
 
         public function __construct() {
+            $this->modelCategory = new CategoryModel();
             $this->modelProduct = new ProductModel();
             $this->view = new ProductView();
         }
