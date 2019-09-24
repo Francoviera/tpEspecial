@@ -16,13 +16,6 @@
     
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
-        public function getCategorias(){
-            $query = $this->db->prepare('SELECT * FROM categorias');
-            $query->execute();
-    
-            return $query->fetchAll(PDO::FETCH_OBJ);
-        }
-        
         public function getProductoConCategoria(){
             $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, categorias.tipo as categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id_categorias_fk');
             $query->execute();
@@ -35,12 +28,7 @@
 
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
-        public function getCategoriaId($id){
-            $query= $this->db->prepare('SELECT FROM categorias WHERE id_categorias_fk= ?');
-            $query->execute(array($id));
-
-            return $query->fetch(PDO::FETCH_OBJ);
-        }
+        
         public function guardar($nombre, $precio, $cantidad, $categoria){
             $query= $this->db->prepare("INSERT INTO inventario(nombre, precio, cantidad, id_categorias_fk) VALUES(?,?,?,?)");
             $query->execute([$nombre, $precio, $cantidad, $categoria]);
