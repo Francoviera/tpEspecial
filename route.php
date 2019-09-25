@@ -2,8 +2,10 @@
     require_once('controllers/productos.controller.php');
     require_once('controllers/login.controller.php');
 
+    define('BASE_URL', 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+
     if($_GET["action"] === ''){
-        $_GET['action'] = 'login';
+        $_GET['action'] = 'home';
     }
     else {
         $partesURL= explode("/", $_GET["action"]);

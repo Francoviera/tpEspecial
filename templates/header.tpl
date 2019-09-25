@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href='{$baseURL}'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,20 +18,27 @@
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <nav class="navbar navbar-expand-md navbar-dark bg-danger">
-                    <a class="navbar-brand" href="index.html"><h4>Dia Online</h4></a>
+                    <a class="navbar-brand" href="home"><h4>Dia Online</h4></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a href="http://localhost/tpEspecial/home"><button class="inicio btn btn-danger" type="button">Inicio <span class="sr-only">(current)</span></button></a>
+                                <a href="home"><button class="inicio btn btn-danger" type="button">Inicio <span class="sr-only">(current)</span></button></a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/tpEspecial/productos"><button class="producto btn btn-danger" type="button">Productos</button></a>
+                                <a href="productos"><button class="producto btn btn-danger" type="button">Productos</button></a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/tpEspecial/categorias"><button class="producto btn btn-danger" type="button">Categorias</button></a>
+                                <a href="categorias"><button class="producto btn btn-danger" type="button">Categorias</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ml-auto">
+                                <a href="logout"><button class="producto btn btn-danger" type="button">Logout</button></a>
                             </li>
                         </ul>
                     </div>

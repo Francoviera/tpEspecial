@@ -43,22 +43,22 @@
         public function eliminarProducto($id){
             $this->modelProduct->eliminar($id);
 
-            header("Location: http://localhost/tpEspecial/productos"); 
+            header("Location: BASE_URL"); 
         }
         public function editarProducto($nombre, $precio, $cantidad, $categoria, $id){
             $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
 
-            // header("Location: http://localhost/tpEspecial/productos"); 
+            // header("Location: BASE_URL"); 
         }
         public function agregarProducto($nombre, $precio, $cantidad, $categoria){
             // if ($nombre != '' && $cantidad != ''){
                 // $resultado= $this->model->verificarExistencia($nombre);
                 // if( $resultado == 0){
                     $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria);
-                    header("Location: http://localhost/tpEspecial/productos"); 
+                    header("Location: BASE_URL"); 
                 // } else{
                 //     $this->model->actualizar($resultado, $nombre, $precio, $cantidad);
-                //     header("Location: http://localhost/tpEspecial/productos"); 
+                //     header("Location: BASE_URL"); 
                 // }
             // }
             // else{

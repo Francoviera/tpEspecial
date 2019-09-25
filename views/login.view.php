@@ -3,10 +3,15 @@
 
     class LoginView{
 
-        public function mostrarLogin(){
-            $smarty= new Smarty();
-            $smarty->assign('titulo', 'Inicio de Secion');
+        private $smarty;
+        public function __construct(){
+            $this->smarty= new Smarty();
+            $this->smarty->assign('baseURL', BASE_URL);
+        }
 
-            $smarty->display('templates/login.tpl');
+        public function mostrarLogin(){
+            $this->smarty->assign('titulo', 'Inicio de Secion');
+
+            $this->smarty->display('templates/login.tpl');
         }
     }
