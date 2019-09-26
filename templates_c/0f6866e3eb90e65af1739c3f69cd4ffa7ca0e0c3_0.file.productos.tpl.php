@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-24 21:55:25
+/* Smarty version 3.1.33, created on 2019-09-27 00:48:46
   from 'C:\xampp\htdocs\tpEspecial\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8a74ad67b6f5_62546740',
+  'unifunc' => 'content_5d8d404e004a95_56096134',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f6866e3eb90e65af1739c3f69cd4ffa7ca0e0c3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\productos.tpl',
-      1 => 1569354914,
+      1 => 1569538123,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d8a74ad67b6f5_62546740 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d8d404e004a95_56096134 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerProductos.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -61,7 +61,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
                                 <td> <?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
 </td>
                                 <td> 
-                                    <button type="button" class="btnEdit" data-id="<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+                                    <button type="button" class="btnEdit" data-nombre="<?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre;?>
+" data-precio="<?php echo $_smarty_tpl->tpl_vars['producto']->value->precio;?>
+" data-cantidad="<?php echo $_smarty_tpl->tpl_vars['producto']->value->cantidad;?>
+" data-categoria="<?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
+" data-id="<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 ">Editar</button>
                                     <a href="eliminar/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 "><button type="button">Eliminar</button></a>
@@ -85,8 +89,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <button class="btn btn-outline-primary btnAgregar" type="button">agregar Producto</button>
-            <div class="agregar">
-                <form action="agregar" method="post">
+            <div class="formAgregar">
+                <form action="agregarProducto" method="post">
                     <h4>Ingrese producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">
@@ -96,14 +100,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </form>
             </div>
 
-            <button class="btn btn-outline-primary btnEditar" type="button">editar Producto</button>
-            <div class="editar d-none">
-                <form action="editar" method="post">
+            <div class="formEditar d-none">
+                <form action="editarProducto" method="post">
                     <h4>Editar producto</h4>
-                    <input class="form-control" type="text" name="nombre">
-                    <h4>precio</h4><input class="form-control" type="number" name="precio">
-                    <h4>cantidad</h4><input class="form-control" type="number" name="cantidad">
-                    <h4>categoria</h4><input class="form-control" type="number" name="categoria">
+                    <input class="form-control valueNombre" type="text" name="nombre">
+                    <h4>precio</h4><input class="form-control valuePrecio" type="number" name="precio">
+                    <h4>cantidad</h4><input class="form-control valueCantidad" type="number" name="cantidad">
+                    <h4>categoria</h4><input class="form-control valueCategoria" type="number" name="categoria">
+                    <h4>id-Producto</h4><input class="form-control valueId" type="number" name="id">
                     <button class="btn btn-outline-success" type="submit">Editar</button>
                 </form>
             </div>

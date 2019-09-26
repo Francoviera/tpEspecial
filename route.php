@@ -22,17 +22,18 @@
 
             break;
         
-        case 'editar':
+        case 'editarProducto':
                 $nombre= $_POST["nombre"];
                 $precio= $_POST["precio"];
                 $cantidad= $_POST["cantidad"];
                 $categoria= $_POST["categoria"];
+                $id= $_POST["id"];
                 $controller = new ProductController();
-                $controller->editarProducto($nombre, $precio, $cantidad, $categoria, $partesURL[2]);
+                $controller->editarProducto($nombre, $precio, $cantidad, $categoria, $id);
             
             break;
 
-        case 'agregar':
+        case 'agregarProducto':
                 $nombre= $_POST["nombre"];
                 $precio= $_POST["precio"];
                 $cantidad= $_POST["cantidad"];
@@ -46,25 +47,41 @@
             $controller = new ProductController();
             $controller->mostrarCategorias();
 
-            if(isset($partesURL[1]) && $partesURL[1] === "agregar"){
-                $tipo= $_POST["tipo"];
-                $desc= $_POST["desc"];
-                $controller->agregarCategoria($tipo, $desc);
-            }
             break;
-        
+
+        case 'eliminarCategoria':
+            $id= $partesURL[1];
+            $controller = new ProductController();
+            $controller->eliminarCategoria($id);
+
+            break;
+        case 'agregarCategoria':
+            $controller = new ProductController();
+            $tipo= $_POST["tipo"];
+            $desc= $_POST["desc"];
+            $controller->agregarCategoria($tipo, $desc);
+
+            break;
+ 
+        case 'editarCategoria':
+            $controller = new ProductController();
+            $tipo= $_POST["tipo"];
+            $desc= $_POST["desc"];
+            $id= $_POST["id"];
+            $controller->editarCategoria($tipo, $desc, $id);
+
+            break;
         case 'categoria':
             $id= $partesURL[1];
             $controller = new ProductController();
             $controller->mostrarCategoriaId($id);
-            break;
 
         case 'home':
             $controller = new ProductController();
             $controller->mostrarHome();
             break;
 
-        case 'eliminar':
+        case 'eliminarProducto':
             $id= $partesURL[1];
 
             $controller= new ProductController();

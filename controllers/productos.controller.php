@@ -43,17 +43,16 @@
         public function eliminarProducto($id){
             $this->modelProduct->eliminar($id);
 
-            header("Location: ../productos"); 
+            header('Location: ../productos'); 
         }
         public function editarProducto($nombre, $precio, $cantidad, $categoria, $id){
             $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
 
-            // header("Location: BASE_URL"); 
+            header("Location: productos"); 
         }
         public function agregarProducto($nombre, $precio, $cantidad, $categoria){
             // if ($nombre != '' && $cantidad != ''){
                 $resultado= $this->modelProduct->verificarExistencia($nombre);
-                var_dump($resultado);
                 if($resultado === false){
                     $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria);
                      header("Location: productos"); 
@@ -66,6 +65,28 @@
             //     $this->view->mostrarError();
             // }  
         }
+        public function agregarCategoria($tipo, $desc){
+            $resultado= $this->modelCategory->verificarExistencia($tipo);
+            if($resultado === false){
+                var_dump($resultado);
+                $this->modelCategory->guardar($tipo, $desc);
+                    header("Location: categorias"); 
+            } else{
+                $this->modelCategory->actualizar($tipo, $desc, $resultado->id);
+                    header("Location: categorias"); 
+            }
+        }
+        public function editarCategoria($tipo, $desc, $id){
+            $this->modelCategory->editar($tipo, $desc, $id);
+            header("Location: categorias");
+        }
+        public function eliminarCategoria($id){
+            $this->modelCategory->eliminar($id);
+            header("Location: ../categorias");
+        }
+
+
+
         /*public function agregarAlCarrito(){
             //los datos del input que ingresa el usuario
             
