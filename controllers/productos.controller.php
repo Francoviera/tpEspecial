@@ -43,7 +43,7 @@
         public function eliminarProducto($id){
             $this->modelProduct->eliminar($id);
 
-            header("Location: BASE_URL"); 
+            header("Location: ../productos"); 
         }
         public function editarProducto($nombre, $precio, $cantidad, $categoria, $id){
             $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
@@ -52,14 +52,15 @@
         }
         public function agregarProducto($nombre, $precio, $cantidad, $categoria){
             // if ($nombre != '' && $cantidad != ''){
-                // $resultado= $this->model->verificarExistencia($nombre);
-                // if( $resultado == 0){
+                $resultado= $this->modelProduct->verificarExistencia($nombre);
+                var_dump($resultado);
+                if($resultado === false){
                     $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria);
-                    header("Location: BASE_URL"); 
-                // } else{
-                //     $this->model->actualizar($resultado, $nombre, $precio, $cantidad);
-                //     header("Location: BASE_URL"); 
-                // }
+                     header("Location: productos"); 
+                } else{
+                    $this->modelProduct->actualizar($precio, $cantidad, $resultado->id);
+                     header("Location: productos"); 
+                }
             // }
             // else{
             //     $this->view->mostrarError();
