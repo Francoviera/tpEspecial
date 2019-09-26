@@ -27,7 +27,7 @@
                                 <td> {$producto->cantidad}</td>
                                 <td> {$producto->categoria}</td>
                                 <td> 
-                                    <button type="button" class="btnEdit" data-id="{$producto->id}">Editar</button>
+                                    <button type="button" class="btnEdit" data-nombre="{$producto->nombre}" data-precio="{$producto->precio}" data-cantidad="{$producto->cantidad}" data-categoria="{$producto->categoria}" data-id="{$producto->id}">Editar</button>
                                     <a href="eliminar/{$producto->id}"><button type="button">Eliminar</button></a>
                                 </td>
                             </tr>
@@ -46,8 +46,8 @@
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <button class="btn btn-outline-primary btnAgregar" type="button">agregar Producto</button>
-            <div class="agregar">
-                <form action="agregar" method="post">
+            <div class="formAgregar">
+                <form action="agregarProducto" method="post">
                     <h4>Ingrese producto</h4>
                     <input class="form-control" type="text" name="nombre">
                     <h4>precio</h4><input class="form-control" type="number" name="precio">
@@ -57,14 +57,14 @@
                 </form>
             </div>
 
-            <button class="btn btn-outline-primary btnEditar" type="button">editar Producto</button>
-            <div class="editar d-none">
-                <form action="editar" method="post">
+            <div class="formEditar d-none">
+                <form action="editarProducto" method="post">
                     <h4>Editar producto</h4>
-                    <input class="form-control" type="text" name="nombre">
-                    <h4>precio</h4><input class="form-control" type="number" name="precio">
-                    <h4>cantidad</h4><input class="form-control" type="number" name="cantidad">
-                    <h4>categoria</h4><input class="form-control" type="number" name="categoria">
+                    <input class="form-control valueNombre" type="text" name="nombre">
+                    <h4>precio</h4><input class="form-control valuePrecio" type="number" name="precio">
+                    <h4>cantidad</h4><input class="form-control valueCantidad" type="number" name="cantidad">
+                    <h4>categoria</h4><input class="form-control valueCategoria" type="number" name="categoria">
+                    <h4>id-Producto</h4><input class="form-control valueId" type="number" name="id">
                     <button class="btn btn-outline-success" type="submit">Editar</button>
                 </form>
             </div>

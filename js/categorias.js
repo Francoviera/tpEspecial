@@ -10,16 +10,12 @@ document.addEventListener("DOMContentLoaded", function(){
         btnEdit.addEventListener("click", function(){
             divEditar.classList.remove("d-none");
             divAgregar.classList.add("d-none");   
-            let nombre= this.getAttribute("data-nombre");
-            let cantidad= this.getAttribute("data-cantidad");
-            let precio= this.getAttribute("data-precio");
-            let categoria= this.getAttribute("data-categoria");
+            let desc= this.getAttribute("data-desc");
+            let tipo= this.getAttribute("data-tipo");
             let id= this.getAttribute("data-id");
             
-            document.querySelector(".valueNombre").value= nombre;
-            document.querySelector(".valueCantidad").value= cantidad;
-            document.querySelector(".valuePrecio").value= precio;
-            document.querySelector(".valueCategoria").value= categoria;
+            document.querySelector(".valueTipo").value= tipo;
+            document.querySelector(".valueDesc").value= desc;
             document.querySelector(".valueId").value= id;
             
         })
