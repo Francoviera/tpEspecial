@@ -30,23 +30,28 @@
         }
         
         public function guardar($nombre, $precio, $cantidad, $categoria){
-            $query= $this->db->prepare("INSERT INTO inventario(nombre, precio, cantidad, id_categorias_fk) VALUES(?,?,?,?)");
-            $query->execute([$nombre, $precio, $cantidad, $categoria]);
+                $query= $this->db->prepare("INSERT INTO inventario(nombre, precio, cantidad, id_categorias_fk) VALUES(?,?,?,?)");
+                $query->execute([$nombre, $precio, $cantidad, $categoria]);
         }    
         public function verificarExistencia($nombre){ 
-            $valor= 0;
-            $inventario= getInventario();
-            foreach($invetario as $producto){
-                if($producto->nombre === $nombre){
-                    $valor= $producto->id;
-                }
-            }
-            return valor;
+            // $valor= 0;
+            $query= $this->db->prepare('SELECT * FROM inventario WHERE nombre= ?');
+            $query->execute(array($nombre));
+
+            return $query->fetch(PDO::FETCH_OBJ);
+            // $inventario= getInventario();
+            // foreach($inventario as $producto){
+            //     if($producto->nombre === $nombre){
+            //         $valor= $producto->id;
+            //     }
+            // }
+
+            // return valor;
         }
-        // public function actualizar($id, $nombre, $precio, $cantidad){
-        //     $query= $this->db->prepare("UPDATE inventario SET precio= $precio WHERE id= ? ");
-        //     $query->execute(array($id));
-        // }
+        public function actualizar($precio, $cantidad, $id){
+            $query= $this->db->prepare("UPDATE inventario SET precio= ?, cantidad= ? WHERE id= ?");
+            $query->execute(array($precio, $cantidad, $id));
+        }
         public function eliminar($id){
             $query= $this->db->prepare("DELETE FROM inventario WHERE id= ?");
             $query->execute(array($id));
@@ -55,6 +60,12 @@
             $query= $this->db->prepare("UPDATE inventario SET nombre= ?, precio= ?, cantidad= ?, categoria= ? WHERE id= ?");
             $query->execute(array($nombre, $precio, $cantidad, $categoria, $id));
         }
+
+
+
+
+
+        
 
         // public function getCompras(){ 
         //     $query = $this->db->prepare('SELECT * FROM compras');
