@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-27 00:28:42
+/* Smarty version 3.1.33, created on 2019-09-27 01:24:29
   from 'C:\xampp\htdocs\tpEspecial\templates\headerCategorias.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8d3b9ab74cc3_38557079',
+  'unifunc' => 'content_5d8d48add8a770_29669633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '456ea8111d6455398afaa696be4979f4e60288d5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\headerCategorias.tpl',
-      1 => 1569536728,
+      1 => 1569540228,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d8d3b9ab74cc3_38557079 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d8d48add8a770_29669633 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +64,13 @@ function content_5d8d3b9ab74cc3_38557079 (Smarty_Internal_Template $_smarty_tpl)
                             </li>
                             <li class="nav-item">
                                 <a href="http://localhost/tpEspecial/categorias"><button class="producto btn btn-danger" type="button">Categorias</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ml-auto">
+                                <a href="logout"><button class="producto btn btn-danger" type="button">Logout</button></a>
                             </li>
                         </ul>
                     </div>

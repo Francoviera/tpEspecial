@@ -16,6 +16,20 @@
             $controller->mostrarLogin();
 
             break;
+        
+        case 'login':
+            $username= $_POST["username"];
+            $password= $_POST["password"];
+            $controller = new LoginController();
+            $controller->
+
+            break;
+        
+        case 'logout':
+            $controller = new LoginController();
+            $controller->logout();
+            break;
+
         case 'productos':
             $controller = new ProductController();
             $controller->mostrarProductos();
