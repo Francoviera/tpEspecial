@@ -9,16 +9,18 @@
 
         public function __construct(){
             $this->viewLogin= new LoginView();
+            $this->modelLogin= new LoginModel();
         }
         public function mostrarLogin(){
             $this->viewLogin->mostrarLogin();
         }
-        public function verificarLogin($username, $password){
-            $datosUser= $this->modelLogin->obtenerDatosUser($username);
-            if($datosUser != false && password_verify($password, $datosUser->password)){
+        public function verificarLogin($email, $password){
+            $datosUser= $this->modelLogin->obtenerDatosUser($email);
+       
+            if(!empty($datosUser) && password_verify($password, $datosUser->contraseña )){
                 session_start();
-                $_SESSION['email']= $email;
-                $_SESSION['id_user']= $datosUser->id;
+                $_SESSION['EMAIL']= $email;
+                $_SESSION['ID_USER']= $datosUser->id;
 
                 header("Location: productos");
             } else{
@@ -30,6 +32,12 @@
             session_start();
             session_destroy();
             header('Location: login');
+        }
+        public function singup($email, $password){
+            $passwordHass= password_hash($password, PASSWORD_DEFAULT);
+            $this->modelLogin->crearUsuario($email, $passwordHass);
+            
+            //header('Location: login'); //preguntar si esta bien asi o hay que hacer una constante para login
         }
     
     }

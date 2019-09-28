@@ -12,6 +12,7 @@
         public function mostrarInventario($inventario){
             $this->smarty->assign('titulo', 'Lista de Productos');
             $this->smarty->assign('inventario', $inventario);
+            $this->smarty->assign('nameJS', 'productos');
 
             $this->smarty->display('templates/productos.tpl');
         }
@@ -25,6 +26,7 @@
         public function categorias($categorias){
             $this->smarty->assign('titulo', 'Categorias');
             $this->smarty->assign('categorias', $categorias);
+            $this->smarty->assign('nameJS', 'categorias');
 
             $this->smarty->display('templates/categorias.tpl');
         }
@@ -32,6 +34,8 @@
             $this->smarty->assign('titulo', 'Categoria');
             $this->smarty->assign('productos', $productos);
             $this->smarty->assign('categoria', $categoria);
+            $this->smarty->assign('nameJS', 'categorias');
+            
 
             $this->smarty->display('templates/id_categoria.tpl');
         }

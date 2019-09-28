@@ -51,30 +51,6 @@ footer ul li img{
     width: 30%;
     height: 20%;;
 }
-.formulario h3, h2{
-    text-decoration: underline;
-    font-family: Arial, Helvetica, sans-serif;
-}
 input select{ 
-    border-radius: 5px;
-}
-.formulario{
-    margin-left: 30px;
-    max-width: 100%;
-    margin: 20px;
-    margin-top: 30px;
-    padding: 20px;
-    border: solid;
-    box-shadow: 0 0 20px 1px;
-    display: inline-block;
-}
-.tarjeta{
-    color: red;
-    max-width: 100%;
-    margin: 20px;
-    margin-top: 30px;
-    padding: 40px;
-    box-shadow: 0 0 20px 1px; 
-    display: inline-block;
     border-radius: 5px;
 }

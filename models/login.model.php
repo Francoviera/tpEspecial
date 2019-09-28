@@ -9,10 +9,14 @@
             , 'root', '');                              //usuario--contraseña
          
         }
-        public function obtenerDatosUser(){
+        public function obtenerDatosUser($email){
             $query= $this->db->prepare('SELECT * FROM usuarios WHERE email= ?');
             $query->execute(array($email));
 
             return $query->fetch(PDO::FETCH_OBJ);
+        }
+        public function crearUsuario($email, $password){
+            $query= $this->db->prepare('INSERT INTO usuarios(email, contraseña) VALUES(?,?)');
+            $query->execute([$email, $password]);
         }
     }

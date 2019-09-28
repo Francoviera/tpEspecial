@@ -16,13 +16,12 @@
         }
         private function checkLogin() {
             session_start();
-            if (!isset($_SESSION['id_user'])) {
+            if (!isset($_SESSION['ID_USER'])) {
                 header('Location: login');
                 die();
             }
                 
         }
-    
         public function mostrarHome(){
             $this->view->home();
         }
