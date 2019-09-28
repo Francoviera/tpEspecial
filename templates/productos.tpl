@@ -1,4 +1,4 @@
-{include 'templates/headerProductos.tpl'}
+{include 'templates/headerJS.tpl'}
 <div class="container-fluid margen contenedor">
     <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -28,7 +28,7 @@
                                 <td> {$producto->categoria}</td>
                                 <td> 
                                     <button type="button" class="btnEdit" data-nombre="{$producto->nombre}" data-precio="{$producto->precio}" data-cantidad="{$producto->cantidad}" data-categoria="{$producto->categoria}" data-id="{$producto->id}">Editar</button>
-                                    <a href="eliminar/{$producto->id}"><button type="button">Eliminar</button></a>
+                                    <a href="eliminarProducto/{$producto->id}"><button type="button">Eliminar</button></a>
                                 </td>
                             </tr>
                         {/foreach}

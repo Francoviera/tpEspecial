@@ -17,17 +17,25 @@
 
             break;
         
-        case 'login':
-            $username= $_POST["username"];
+        case 'logIn':
+            $email= $_POST["email"];
             $password= $_POST["password"];
             $controller = new LoginController();
-            $controller->
+            $controller->verificarLogin($email, $password);
 
             break;
         
         case 'logout':
             $controller = new LoginController();
             $controller->logout();
+            break;
+        
+        case 'singup':
+            $email= $_POST["newEmail"];
+            $password= $_POST["newPassword"];
+            $controller = new LoginController();
+            $controller->singup($email, $password);
+
             break;
 
         case 'productos':
