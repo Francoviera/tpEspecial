@@ -9,11 +9,20 @@
         private $view;
 
         public function __construct() {
+            $this->checkLogin();
             $this->modelCategory = new CategoryModel();
             $this->modelProduct = new ProductModel();
             $this->view = new ProductView();
         }
-
+        private function checkLogin() {
+            session_start();
+            if (!isset($_SESSION['id_user'])) {
+                header('Location: login');
+                die();
+            }
+                
+        }
+    
         public function mostrarHome(){
             $this->view->home();
         }

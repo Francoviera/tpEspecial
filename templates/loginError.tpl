@@ -13,7 +13,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
-
+        <div class="alert alert-danger" role="alert">
+            {$error}
+        </div>
     </div>
 </div>
 {include 'templates/footer.tpl'}

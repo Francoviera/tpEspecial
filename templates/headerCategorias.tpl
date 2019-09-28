@@ -35,6 +35,13 @@
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ml-auto">
+                                <a href="logout"><button class="producto btn btn-danger" type="button">Logout</button></a>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </div>    
         </div>
