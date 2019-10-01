@@ -34,8 +34,8 @@
             $inventario= $this->modelProduct->getInventario();
             $this->view->categoria($id, $categoria, $inventario);
         }
-        public function mostrarCategoriaId(){
-            $id= $partesURL[1];
+        public function mostrarCategoriaId($params = null){
+            $id = $params[':ID'];
             $productos= $this->modelProduct->getProductosId($id);
             $categoria= $this->modelCategory->getCategoriaId($id);
 
@@ -49,8 +49,8 @@
             // se las paso a la vista
             $this->view->mostrarInventario($productoConCategoria);
         }
-        public function eliminarProducto(){
-            $id= $partesURL[1];
+        public function eliminarProducto($params = null){
+            $id = $params[':ID'];
             $this->modelProduct->eliminar($id);
 
             header('Location: ../productos'); 
@@ -104,8 +104,8 @@
             $this->modelCategory->editar($tipo, $desc, $id);
             header("Location: categorias");
         }
-        public function eliminarCategoria(){
-            $id= $partesURL[1];
+        public function eliminarCategoria($params = null){
+            $id = $params[':ID'];
             $this->modelCategory->eliminar($id);
             header("Location: ../categorias");
         }
