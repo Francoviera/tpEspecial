@@ -1,98 +1,26 @@
 <?php
     require_once('controllers/productos.controller.php');
     require_once('controllers/login.controller.php');
+    require_once('Router.php');
 
     define('BASE_URL', 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
-    if($_GET["action"] === ''){
-        $_GET['action'] = 'home';
-    }
-    else {
-        $partesURL= explode("/", $_GET["action"]);
+    $r = new Router();
 
-      switch ($partesURL[0]) {
-        case 'login':
-            $controller = new LoginController();
-            $controller->mostrarLogin();
+    $r->addRoute("login", "GET", "LoginController", "mostrarLogin");
+    $r->addRoute("logIn", "POST", "LoginController", "verificarLogin");
+    $r->addRoute("logout", "GET", "LoginController", "logout");
+    $r->addRoute("singup", "POST", "LoginController", "singup");
+    $r->addRoute("home", "GET", "ProductController", "mostrarHome");
+    $r->addRoute("productos", "GET", "ProductController", "mostrarProductos");
+    $r->addRoute("agregarProducto", "POST", "ProductController", "agregarProducto");
+    $r->addRoute("editarProducto", "POST", "ProductController", "editarProducto");
+    $r->addRoute("eliminarProducto/:ID", "GET", "ProductController", "eliminarProducto");
+    $r->addRoute("categorias", "GET", "ProductController", "mostrarCategorias");
+    $r->addRoute("agregarCategoria", "POST", "ProductController", "agregarCategoria");
+    $r->addRoute("eliminarCategoria/:ID", "GET", "ProductController", "eliminarCategoria");
+    $r->addRoute("editarCategoria", "POST", "ProductController", "editarCategoria");
+    $r->addRoute("categoria/:ID", "GET", "ProductController", "mostrarCategoriaId");
 
-            break;
-        
-        case 'logIn':
-            
-            $controller = new LoginController();
-            $controller->verificarLogin();
-
-            break;
-        
-        case 'logout':
-            $controller = new LoginController();
-            $controller->logout();
-            break;
-        
-        case 'singup':
-            
-            $controller = new LoginController();
-            $controller->singup();
-
-            break;
-
-        case 'productos':
-            $controller = new ProductController();
-            $controller->mostrarProductos();
-
-            break;
-        
-        case 'editarProducto':
-                $controller = new ProductController();
-                $controller->editarProducto();
-            
-            break;
-
-        case 'agregarProducto':
-                $controller = new ProductController();
-                $controller->agregarProducto();
-
-            break;
-        
-        case 'categorias':
-            $controller = new ProductController();
-            $controller->mostrarCategorias();
-
-            break;
-
-        case 'eliminarCategoria':
-            $controller = new ProductController();
-            $controller->eliminarCategoria();
-
-            break;
-        case 'agregarCategoria':
-            $controller = new ProductController();
-            $controller->agregarCategoria();
-
-            break;
- 
-        case 'editarCategoria':
-            $controller = new ProductController();
-            $controller->editarCategoria();
-
-            break;
-        case 'categoria':
-            $controller = new ProductController();
-            $controller->mostrarCategoriaId();
-
-        case 'home':
-            $controller = new ProductController();
-            $controller->mostrarHome();
-            break;
-
-        case 'eliminarProducto':
-            $controller= new ProductController();
-            $controller->eliminarProducto();
-            break;
-
-
-        default:
-            echo "<h1>Error 404 - Page not found </h1>";
-            break;
-        }
-    }
+    $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
+?>
