@@ -14,7 +14,9 @@
         public function mostrarLogin(){
             $this->viewLogin->mostrarLogin();
         }
-        public function verificarLogin($email, $password){
+        public function verificarLogin(){
+            $email= $_POST["email"];
+            $password= $_POST["password"];
             $datosUser= $this->modelLogin->obtenerDatosUser($email);
        
             if(!empty($datosUser) && password_verify($password, $datosUser->contraseña )){
@@ -33,7 +35,9 @@
             session_destroy();
             header('Location: login');
         }
-        public function singup($email, $password){
+        public function singup(){
+            $email= $_POST["newEmail"];
+            $password= $_POST["newPassword"];
             $passwordHass= password_hash($password, PASSWORD_DEFAULT);
             $this->modelLogin->crearUsuario($email, $passwordHass);
             

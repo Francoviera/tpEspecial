@@ -34,7 +34,8 @@
             $inventario= $this->modelProduct->getInventario();
             $this->view->categoria($id, $categoria, $inventario);
         }
-        public function mostrarCategoriaId($id){
+        public function mostrarCategoriaId(){
+            $id= $partesURL[1];
             $productos= $this->modelProduct->getProductosId($id);
             $categoria= $this->modelCategory->getCategoriaId($id);
 
@@ -48,17 +49,27 @@
             // se las paso a la vista
             $this->view->mostrarInventario($productoConCategoria);
         }
-        public function eliminarProducto($id){
+        public function eliminarProducto(){
+            $id= $partesURL[1];
             $this->modelProduct->eliminar($id);
 
             header('Location: ../productos'); 
         }
-        public function editarProducto($nombre, $precio, $cantidad, $categoria, $id){
+        public function editarProducto(){
+            $nombre= $_POST["nombre"];
+            $precio= $_POST["precio"];
+            $cantidad= $_POST["cantidad"];
+            $categoria= $_POST["categoria"];
+            $id= $_POST["id"];
             $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
 
             header("Location: productos"); 
         }
-        public function agregarProducto($nombre, $precio, $cantidad, $categoria){
+        public function agregarProducto(){
+            $nombre= $_POST["nombre"];
+            $precio= $_POST["precio"];
+            $cantidad= $_POST["cantidad"];
+            $categoria= $_POST["categoria"];
             // if ($nombre != '' && $cantidad != ''){
                 $resultado= $this->modelProduct->verificarExistencia($nombre);
                 if($resultado === false){
@@ -73,7 +84,9 @@
             //     $this->view->mostrarError();
             // }  
         }
-        public function agregarCategoria($tipo, $desc){
+        public function agregarCategoria(){
+            $tipo= $_POST["tipo"];
+            $desc= $_POST["desc"];
             $resultado= $this->modelCategory->verificarExistencia($tipo);
             if($resultado === false){
                 var_dump($resultado);
@@ -84,11 +97,15 @@
                     header("Location: categorias"); 
             }
         }
-        public function editarCategoria($tipo, $desc, $id){
+        public function editarCategoria(){
+            $tipo= $_POST["tipo"];
+            $desc= $_POST["desc"];
+            $id= $_POST["id"];
             $this->modelCategory->editar($tipo, $desc, $id);
             header("Location: categorias");
         }
-        public function eliminarCategoria($id){
+        public function eliminarCategoria(){
+            $id= $partesURL[1];
             $this->modelCategory->eliminar($id);
             header("Location: ../categorias");
         }

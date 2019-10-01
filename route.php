@@ -18,10 +18,9 @@
             break;
         
         case 'logIn':
-            $email= $_POST["email"];
-            $password= $_POST["password"];
+            
             $controller = new LoginController();
-            $controller->verificarLogin($email, $password);
+            $controller->verificarLogin();
 
             break;
         
@@ -31,10 +30,9 @@
             break;
         
         case 'singup':
-            $email= $_POST["newEmail"];
-            $password= $_POST["newPassword"];
+            
             $controller = new LoginController();
-            $controller->singup($email, $password);
+            $controller->singup();
 
             break;
 
@@ -45,23 +43,14 @@
             break;
         
         case 'editarProducto':
-                $nombre= $_POST["nombre"];
-                $precio= $_POST["precio"];
-                $cantidad= $_POST["cantidad"];
-                $categoria= $_POST["categoria"];
-                $id= $_POST["id"];
                 $controller = new ProductController();
-                $controller->editarProducto($nombre, $precio, $cantidad, $categoria, $id);
+                $controller->editarProducto();
             
             break;
 
         case 'agregarProducto':
-                $nombre= $_POST["nombre"];
-                $precio= $_POST["precio"];
-                $cantidad= $_POST["cantidad"];
-                $categoria= $_POST["categoria"];
                 $controller = new ProductController();
-                $controller->agregarProducto($nombre, $precio, $cantidad, $categoria);
+                $controller->agregarProducto();
 
             break;
         
@@ -72,31 +61,24 @@
             break;
 
         case 'eliminarCategoria':
-            $id= $partesURL[1];
             $controller = new ProductController();
-            $controller->eliminarCategoria($id);
+            $controller->eliminarCategoria();
 
             break;
         case 'agregarCategoria':
             $controller = new ProductController();
-            $tipo= $_POST["tipo"];
-            $desc= $_POST["desc"];
-            $controller->agregarCategoria($tipo, $desc);
+            $controller->agregarCategoria();
 
             break;
  
         case 'editarCategoria':
             $controller = new ProductController();
-            $tipo= $_POST["tipo"];
-            $desc= $_POST["desc"];
-            $id= $_POST["id"];
-            $controller->editarCategoria($tipo, $desc, $id);
+            $controller->editarCategoria();
 
             break;
         case 'categoria':
-            $id= $partesURL[1];
             $controller = new ProductController();
-            $controller->mostrarCategoriaId($id);
+            $controller->mostrarCategoriaId();
 
         case 'home':
             $controller = new ProductController();
@@ -104,10 +86,8 @@
             break;
 
         case 'eliminarProducto':
-            $id= $partesURL[1];
-
             $controller= new ProductController();
-            $controller->eliminarProducto($id);
+            $controller->eliminarProducto();
             break;
 
 

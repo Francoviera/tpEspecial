@@ -38,7 +38,7 @@
                     <div>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item ml-auto">
-                                <a href="logout"><button class="producto btn btn-danger" type="button">Logout</button></a>
+                                <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
                             </li>
                         </ul>
                     </div>
