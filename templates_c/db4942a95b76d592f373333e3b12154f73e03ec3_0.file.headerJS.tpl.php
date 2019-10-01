@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-28 07:03:15
+/* Smarty version 3.1.33, created on 2019-09-28 21:38:05
   from 'C:\xampp\htdocs\tpEspecial\templates\headerJS.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8ee99321e204_96419512',
+  'unifunc' => 'content_5d8fb69da03e74_08954255',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db4942a95b76d592f373333e3b12154f73e03ec3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\headerJS.tpl',
-      1 => 1569646794,
+      1 => 1569699481,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d8ee99321e204_96419512 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d8fb69da03e74_08954255 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +71,7 @@ function content_5d8ee99321e204_96419512 (Smarty_Internal_Template $_smarty_tpl)
                     <div>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item ml-auto">
-                                <a href="logout"><button class="producto btn btn-danger" type="button">Logout</button></a>
+                                <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
                             </li>
                         </ul>
                     </div>

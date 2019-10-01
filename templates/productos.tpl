@@ -27,8 +27,8 @@
                                 <td> {$producto->cantidad}</td>
                                 <td> {$producto->categoria}</td>
                                 <td> 
-                                    <button type="button" class="btnEdit" data-nombre="{$producto->nombre}" data-precio="{$producto->precio}" data-cantidad="{$producto->cantidad}" data-categoria="{$producto->categoria}" data-id="{$producto->id}">Editar</button>
-                                    <a href="eliminarProducto/{$producto->id}"><button type="button">Eliminar</button></a>
+                                    <button type="button" class="btnEdit btn btn-warning" data-nombre="{$producto->nombre}" data-precio="{$producto->precio}" data-cantidad="{$producto->cantidad}" data-categoria="{$producto->id_categoria_fk}" data-id="{$producto->id}">Editar</button>
+                                    <a href="eliminarProducto/{$producto->id}"><button type="button" class="btn btn-danger">Eliminar</button></a>
                                 </td>
                             </tr>
                         {/foreach}

@@ -17,7 +17,7 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
         public function getProductoConCategoria(){
-            $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, categorias.tipo as categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id');
+            $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, categorias.tipo AS categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id');
             $query->execute();
 
             return $query->fetchAll(PDO::FETCH_OBJ);

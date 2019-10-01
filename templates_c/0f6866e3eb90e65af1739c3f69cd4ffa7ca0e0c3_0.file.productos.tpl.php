@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-28 21:21:58
+/* Smarty version 3.1.33, created on 2019-09-28 21:43:20
   from 'C:\xampp\htdocs\tpEspecial\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8fb2d6f16615_42240276',
+  'unifunc' => 'content_5d8fb7d85f1f88_96969366',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f6866e3eb90e65af1739c3f69cd4ffa7ca0e0c3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\productos.tpl',
-      1 => 1569698502,
+      1 => 1569699798,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d8fb2d6f16615_42240276 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d8fb7d85f1f88_96969366 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -61,14 +61,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
                                 <td> <?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
 </td>
                                 <td> 
-                                    <button type="button" class="btnEdit" data-nombre="<?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre;?>
+                                    <button type="button" class="btnEdit btn btn-warning" data-nombre="<?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre;?>
 " data-precio="<?php echo $_smarty_tpl->tpl_vars['producto']->value->precio;?>
 " data-cantidad="<?php echo $_smarty_tpl->tpl_vars['producto']->value->cantidad;?>
-" data-categoria="<?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
+" data-categoria="<?php echo $_smarty_tpl->tpl_vars['producto']->value->id_categoria_fk;?>
 " data-id="<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 ">Editar</button>
                                     <a href="eliminarProducto/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
-"><button type="button">Eliminar</button></a>
+"><button type="button" class="btn btn-danger">Eliminar</button></a>
                                 </td>
                             </tr>
                         <?php
