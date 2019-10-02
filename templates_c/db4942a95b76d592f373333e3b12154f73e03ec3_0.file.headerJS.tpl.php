@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-28 21:38:05
+/* Smarty version 3.1.33, created on 2019-10-03 00:06:09
   from 'C:\xampp\htdocs\tpEspecial\templates\headerJS.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8fb69da03e74_08954255',
+  'unifunc' => 'content_5d951f51529a59_25665990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db4942a95b76d592f373333e3b12154f73e03ec3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\headerJS.tpl',
-      1 => 1569699481,
+      1 => 1570053958,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d8fb69da03e74_08954255 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d951f51529a59_25665990 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +51,7 @@ function content_5d8fb69da03e74_08954255 (Smarty_Internal_Template $_smarty_tpl)
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <nav class="navbar navbar-expand-md navbar-dark bg-danger">
-                    <a class="navbar-brand" href="index.html"><h4>Dia Online</h4></a>
+                    <a class="navbar-brand" href="home"><h4>Dia Online</h4></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -69,11 +69,11 @@ function content_5d8fb69da03e74_08954255 (Smarty_Internal_Template $_smarty_tpl)
                         </ul>
                     </div>
                     <div>
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item ml-auto">
-                                <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
-                            </li>
-                        </ul>
+                        <?php if ($_smarty_tpl->tpl_vars['userName']->value) {?>
+                            <span class="navbar-text"><?php echo $_smarty_tpl->tpl_vars['userName']->value;?>
+</span>
+                            <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
+                        <?php }?>
                     </div>
                 </nav>
             </div>    

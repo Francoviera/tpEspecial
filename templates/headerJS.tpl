@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <nav class="navbar navbar-expand-md navbar-dark bg-danger">
-                    <a class="navbar-brand" href="index.html"><h4>Dia Online</h4></a>
+                    <a class="navbar-brand" href="home"><h4>Dia Online</h4></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -36,11 +36,10 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item ml-auto">
-                                <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
-                            </li>
-                        </ul>
+                        {if $userName}
+                            <span class="navbar-text">{$userName}</span>
+                            <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
+                        {/if}
                     </div>
                 </nav>
             </div>    
