@@ -1,15 +1,18 @@
 <?php   
     include_once('views/login.view.php');
     include_once('models/login.model.php');
+    include_once('helpers/auth.Helper.php');
 
     class LoginController{
         private $viewLogin;
         private $modelLogin;
+        private $authHelper;
 
 
         public function __construct(){
             $this->viewLogin= new LoginView();
             $this->modelLogin= new LoginModel();
+            $this->authHelper= new AuthHelper();
         }
         public function mostrarLogin(){
             $this->viewLogin->mostrarLogin();
@@ -20,9 +23,7 @@
             $datosUser= $this->modelLogin->obtenerDatosUser($email);
        
             if(!empty($datosUser) && password_verify($password, $datosUser->contraseña )){
-                session_start();
-                $_SESSION['EMAIL']= $email;
-                $_SESSION['ID_USER']= $datosUser->id;
+                $this->authHelper->login($datosUser);
 
                 header("Location: productos");
             } else{
@@ -31,8 +32,7 @@
 
         }
         public function logout() {
-            session_start();
-            session_destroy();
+            $this->authHelper->logout();
             header('Location: login');
         }
         public function singup(){

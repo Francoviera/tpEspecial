@@ -4,9 +4,14 @@
     class LoginView{
 
         private $smarty;
+        private $authHelper;
+
         public function __construct(){
+            $this->authHelper= new AuthHelper();
+            $userName= $this->authHelper->getLoggedUserName();
             $this->smarty= new Smarty();
             $this->smarty->assign('baseURL', BASE_URL);
+            $this->smarty->assign('userName', $userName);
         }
 
         public function mostrarLogin(){

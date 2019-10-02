@@ -2,25 +2,21 @@
     include_once('models/productos.model.php');
     include_once('models/categorias.model.php');
     include_once('views/productos.view.php');
+    include_once('helpers/auth.Helper.php');
     
     class ProductController{
         private $modelCategory;
         private $modelProduct;
         private $view;
+        private $authHelper;
+        
 
-        public function __construct() {
-            $this->checkLogin();
+        public function __construct() {        
             $this->modelCategory = new CategoryModel();
             $this->modelProduct = new ProductModel();
             $this->view = new ProductView();
-        }
-        private function checkLogin() {
-            session_start();
-            if (!isset($_SESSION['ID_USER'])) {
-                header('Location: login');
-                die();
-            }
-                
+            $this->authHelper= new AuthHelper();
+            $this->authHelper->checkLogin();
         }
         public function mostrarHome(){
             $this->view->home();

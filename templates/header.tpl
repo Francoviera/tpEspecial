@@ -36,11 +36,10 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item ml-auto">
-                                <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
-                            </li>
-                        </ul>
+                        {if $userName}
+                            <span class="navbar-text">{$userName}</span>
+                            <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
+                        {/if}
                     </div>
                 </nav>
             </div>    
