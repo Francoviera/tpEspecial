@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-03 00:06:09
+/* Smarty version 3.1.33, created on 2019-10-07 02:55:37
   from 'C:\xampp\htdocs\tpEspecial\templates\headerJS.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d951f51529a59_25665990',
+  'unifunc' => 'content_5d9a8d0954d1e2_44925433',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db4942a95b76d592f373333e3b12154f73e03ec3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\headerJS.tpl',
-      1 => 1570053958,
+      1 => 1570409713,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d951f51529a59_25665990 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d9a8d0954d1e2_44925433 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +73,9 @@ function content_5d951f51529a59_25665990 (Smarty_Internal_Template $_smarty_tpl)
                             <span class="navbar-text"><?php echo $_smarty_tpl->tpl_vars['userName']->value;?>
 </span>
                             <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
+                        <?php }?>
+                        <?php if (!$_smarty_tpl->tpl_vars['userName']->value) {?>
+                            <a href="login"><button class="producto btn btn-outline-dark" type="button">Login</button></a>
                         <?php }?>
                     </div>
                 </nav>

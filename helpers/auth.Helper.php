@@ -13,9 +13,10 @@
         }
         public function checkLogin() {
             session_start();
-            if (!isset($_SESSION['EMAIL'])) {
-                header('Location: login');
-                die();
+            if (isset($_SESSION['EMAIL'])) {
+                return true;
+            } else {
+                return false;
             }
                 
         }

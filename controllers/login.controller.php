@@ -21,15 +21,14 @@
             $email= $_POST["email"];
             $password= $_POST["password"];
             $datosUser= $this->modelLogin->obtenerDatosUser($email);
-       
-            if(!empty($datosUser) && password_verify($password, $datosUser->contraseña )){
+            //bug si pongo correo y contraseña vacio entra igual
+            if(!empty($email) && password_verify($password, $datosUser->contraseña )){
                 $this->authHelper->login($datosUser);
 
                 header("Location: productos");
             } else{
                 $this->viewLogin->mostrarLoginError("Usuario o Contraseña Incorrectos");
             }
-
         }
         public function logout() {
             $this->authHelper->logout();
@@ -41,7 +40,7 @@
             $passwordHass= password_hash($password, PASSWORD_DEFAULT);
             $this->modelLogin->crearUsuario($email, $passwordHass);
             
-            //header('Location: login'); //preguntar si esta bien asi o hay que hacer una constante para login
+            header('Location: login'); //preguntar si esta bien asi o hay que hacer una constante para login
         }
     
     }
