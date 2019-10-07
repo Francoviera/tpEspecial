@@ -40,6 +40,9 @@
                             <span class="navbar-text">{$userName}</span>
                             <a href="logout"><button class="producto btn btn-outline-dark" type="button">Logout</button></a>
                         {/if}
+                        {if !$userName}
+                            <a href="login"><button class="producto btn btn-outline-dark" type="button">Login</button></a>
+                        {/if}
                     </div>
                 </nav>
             </div>    

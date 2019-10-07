@@ -16,14 +16,19 @@
             $this->modelProduct = new ProductModel();
             $this->view = new ProductView();
             $this->authHelper= new AuthHelper();
-            $this->authHelper->checkLogin();
+            // $this->authHelper->checkLogin();
         }
         public function mostrarHome(){
             $this->view->home();
         }
         public function mostrarCategorias(){
             $categorias= $this->modelCategory->getCategorias();
-            $this->view->categorias($categorias);
+            $login= $this->authHelper->checkLogin();
+            if($login === true){
+                $this->view->categorias($categorias);;
+            } else{
+                $this->view->categoriasUser($categorias);;
+            }
         }
         public function mostrarCategoria($id){
             $categoria= $this->modelCategory->getCategoria($id);
@@ -38,12 +43,13 @@
             $this->view->productosId($productos, $categoria);
         }
         public function mostrarProductos(){
-            // obtengo los productos del model
-            // $inventario= $this->model->getInventario();
             $productoConCategoria= $this->modelProduct->getProductoConCategoria();
-
-            // se las paso a la vista
-            $this->view->mostrarInventario($productoConCategoria);
+            $login= $this->authHelper->checkLogin();
+            if($login === true){
+                $this->view->mostrarInventario($productoConCategoria);
+            } else{
+                $this->view->mostrarProductosUser($productoConCategoria);
+            }
         }
         public function eliminarProducto($params = null){
             $id = $params[':ID'];

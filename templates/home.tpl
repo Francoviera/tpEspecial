@@ -56,7 +56,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-xs-12">
-            <a href="http://localhost/tpEspecial/productos"><button class="btn btn-outline-primary">Ver mas Productos</button></a>
+            <a href="productos"><button class="btn btn-outline-primary">Ver mas Productos</button></a>
         </div>
     </div>
 </div>

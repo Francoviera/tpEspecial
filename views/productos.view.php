@@ -14,11 +14,17 @@
         }
 
         public function mostrarInventario($inventario){
-            $this->smarty->assign('titulo', 'Lista de Productos');
+            $this->smarty->assign('titulo', 'Lista del Inventario');
             $this->smarty->assign('inventario', $inventario);
             $this->smarty->assign('nameJS', 'productos');
 
             $this->smarty->display('templates/productos.tpl');
+        }
+        public function mostrarProductosUser($productos){
+            $this->smarty->assign('titulo', 'Lista de Productos');
+            $this->smarty->assign('productos', $productos);
+
+            $this->smarty->display('templates/productosUser.tpl');
         }
 
         public function home(){
@@ -33,6 +39,12 @@
             $this->smarty->assign('nameJS', 'categorias');
 
             $this->smarty->display('templates/categorias.tpl');
+        }
+        public function categoriasUser($categorias){
+            $this->smarty->assign('titulo', 'Categorias');
+            $this->smarty->assign('categorias', $categorias);
+
+            $this->smarty->display('templates/categoriasUser.tpl');
         }
         public function productosId($productos, $categoria){
             $this->smarty->assign('titulo', 'Categoria');

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-17 23:45:21
+/* Smarty version 3.1.33, created on 2019-10-07 07:17:01
   from 'C:\xampp\htdocs\tpEspecial\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d8153f1eab251_16821973',
+  'unifunc' => 'content_5d9aca4d3162c5_46775109',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e27ba8f191c8cc7d35aaf8b283ccdd4c0a767200' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\home.tpl',
-      1 => 1568755277,
+      1 => 1570425289,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d8153f1eab251_16821973 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d9aca4d3162c5_46775109 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -82,7 +82,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
     </div>
     <div class="row">
         <div class="col-md-12 col-xs-12">
-            <a href="http://localhost/tpEspecial/productos"><button class="btn btn-outline-primary">Ver mas Productos</button></a>
+            <a href="productos"><button class="btn btn-outline-primary">Ver mas Productos</button></a>
         </div>
     </div>
 </div>
