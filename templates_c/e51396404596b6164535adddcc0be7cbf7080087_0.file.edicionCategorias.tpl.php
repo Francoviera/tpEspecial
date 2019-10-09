@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-09 06:44:11
-  from 'C:\xampp\htdocs\tpEspecial\templates\categorias.tpl' */
+/* Smarty version 3.1.33, created on 2019-10-09 06:39:48
+  from 'C:\xampp\htdocs\tpEspecial\templates\edicionCategorias.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9d659b2f63c0_81014609',
+  'unifunc' => 'content_5d9d6494bba9a0_01989002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8bcd6da97a4c97dbc8bc5e0028c07cccc2872bed' => 
+    'e51396404596b6164535adddcc0be7cbf7080087' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\categorias.tpl',
-      1 => 1570596093,
+      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\edicionCategorias.tpl',
+      1 => 1570595952,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9d659b2f63c0_81014609 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d9d6494bba9a0_01989002 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container"> 
@@ -55,15 +55,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <?php if ($_smarty_tpl->tpl_vars['error']->value) {?>
-                <h4 class="bg bg-danger"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-</h4>
-            <?php }?>
-            <form action="agregarCategoria" method="post">
-                <h2>Ingrese Categoria</h2>
-                <h4>tipo</h4><input class="form-control" type="text" name="tipo">
-                <h4>desc</h4><input class="form-control" type="text" name="desc">
-                <button class="btn btn-outline-success" type="submit">agregar</button>
+            <form action="formEditarCategoria" method="post">
+                <h2>Editar Categoria</h2>
+                <h4>tipo</h4><input class="form-control valueTipo" type="text" name="tipo" value="<?php echo $_smarty_tpl->tpl_vars['categoriaEdit']->value->tipo;?>
+">
+                <div class="md-form">
+                    <i class="fas fa-pencil-alt prefix"></i>
+                    <label for="form10">Descripcion</label>
+                    <textarea id="form10" class="md-textarea form-control" name="desc" rows="3"><?php echo $_smarty_tpl->tpl_vars['categoriaEdit']->value->descripcion;?>
+</textarea>
+                </div>
+                <h4>id-categoria</h4><input class="form-control valueId" type="number" name="id" value="<?php echo $_smarty_tpl->tpl_vars['categoriaEdit']->value->id;?>
+">
+                <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>
         </div>
     </div>

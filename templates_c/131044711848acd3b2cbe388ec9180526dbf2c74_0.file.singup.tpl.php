@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-09 07:00:20
-  from 'C:\xampp\htdocs\tpEspecial\templates\login.tpl' */
+/* Smarty version 3.1.33, created on 2019-10-09 07:00:49
+  from 'C:\xampp\htdocs\tpEspecial\templates\singup.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9d696482eed0_11065615',
+  'unifunc' => 'content_5d9d698137ec42_35568216',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a9b0b1eb92c48a94955a4df2496043a1beb01797' => 
+    '131044711848acd3b2cbe388ec9180526dbf2c74' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\login.tpl',
-      1 => 1570597175,
+      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\singup.tpl',
+      1 => 1570597247,
       2 => 'file',
     ),
   ),
@@ -22,24 +22,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9d696482eed0_11065615 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d9d698137ec42_35568216 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container margen contenedor">
     <div class="row">
         <div class="col-md-6 col-xs-12">
-            <form action="logIn" method="post">
+            <form action="singup" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introdusca el Email">
+                    <input type="email" class="form-control" name="newEmail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introdusca el Email">
                     <small id="emailHelp" class="form-text text-muted">Nosotros nunca vamos a compartir el email a otra persona.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Introdusca su Contraseña">
+                    <input type="password" class="form-control" name="newPassword" id="exampleInputPassword1" placeholder="Introdusca su Contraseña">
                 </div>
-                <a href="registrarse"><button type="button" class="btn btn-secondary btnSingup">registrate</button></a>
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Registrarme</button>
             </form>
         </div>
     </div>
