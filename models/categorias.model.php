@@ -28,6 +28,12 @@
             $query->execute(array($id));
             return $query->fetch(PDO::FETCH_OBJ);
         }
+        public function getCategoriaPorTipo($categoria){
+            $query= $this->db->prepare('SELECT * FROM categorias WHERE tipo = ?');
+            $query->execute(array($categoria));
+            
+            return $query->fetch(PDO::FETCH_OBJ);
+        }
         public function eliminar($id){
             $query= $this->db->prepare("DELETE FROM categorias WHERE id= ?");
             $query->execute(array($id));

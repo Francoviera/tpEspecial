@@ -34,13 +34,19 @@
             $this->authHelper->logout();
             header('Location: login');
         }
+        public function mostrarSingup(){
+            $this->viewLogin->mostrarSingup();
+        }
         public function singup(){
             $email= $_POST["newEmail"];
             $password= $_POST["newPassword"];
-            $passwordHass= password_hash($password, PASSWORD_DEFAULT);
-            $this->modelLogin->crearUsuario($email, $passwordHass);
-            
-            header('Location: login'); //preguntar si esta bien asi o hay que hacer una constante para login
+            if(!isset($email)){
+                $passwordHass= password_hash($password, PASSWORD_DEFAULT);
+                $this->modelLogin->crearUsuario($email, $passwordHass);
+                header('Location: login');
+            }else{
+                $this->viewLogin->mostrarLoginError("Complete todos los campos");
+            }
         }
     
     }

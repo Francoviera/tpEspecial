@@ -17,14 +17,16 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            {if $error}
-                <h4 class="bg bg-danger">{$error}</h4>
-            {/if}
-            <form action="agregarCategoria" method="post">
-                <h2>Ingrese Categoria</h2>
-                <h4>tipo</h4><input class="form-control" type="text" name="tipo">
-                <h4>desc</h4><input class="form-control" type="text" name="desc">
-                <button class="btn btn-outline-success" type="submit">agregar</button>
+            <form action="formEditarCategoria" method="post">
+                <h2>Editar Categoria</h2>
+                <h4>tipo</h4><input class="form-control valueTipo" type="text" name="tipo" value="{$categoriaEdit->tipo}">
+                <div class="md-form">
+                    <i class="fas fa-pencil-alt prefix"></i>
+                    <label for="form10">Descripcion</label>
+                    <textarea id="form10" class="md-textarea form-control" name="desc" rows="3">{$categoriaEdit->descripcion}</textarea>
+                </div>
+                <h4>id-categoria</h4><input class="form-control valueId" type="number" name="id" value="{$categoriaEdit->id}">
+                <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>
         </div>
     </div>

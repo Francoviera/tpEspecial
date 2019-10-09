@@ -1,4 +1,4 @@
-{include 'templates/headerJS.tpl'}
+{include 'templates/header.tpl'}
 <div class="container-fluid margen contenedor">
     <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -45,58 +45,22 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h4>Ingrese producto</h4>
-            <form action="agregarProducto" method="post">
-                <input class="form-control" type="text" name="nombre">
-                <h4>precio</h4><input class="form-control" type="number" name="precio">
-                <h4>cantidad</h4><input class="form-control" type="number" name="cantidad">
+            <form action="formEditarProducto" method="post">
+                <h4>Editar producto</h4>
+                <input class="form-control valueNombre" type="text" name="nombre" value="{$productoEdit->nombre}">
+                <h4>precio</h4><input class="form-control valuePrecio" type="number" name="precio" value="{$productoEdit->precio}">
+                <h4>cantidad</h4><input class="form-control valueCantidad" type="number" name="cantidad" value="{$productoEdit->cantidad}">
                 <h4>categoria</h4>
                     <select class="form-control valueCategoria" type="number" name="categoria">
+                        <option selected value="{$productoEdit->id_categorias_fk}">{$productoEdit->categoria}<option>
                         {foreach $categorias as $categoria}
                             <option value="{$categoria->id}">{$categoria->tipo}</option> 
                         {/foreach}
                     </select>
-                <button class="btn btn-outline-success" type="submit">agregar</button>
+                <h4>id-Producto</h4><input class="form-control valueId" type="number" name="id" value="{$productoEdit->id}">
+                <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>
-        </div>
+        </div>  
     </div>  
 </div>
 {include 'templates/footer.tpl'}
-
-{* <div>
-            <h3>Total Final</h3> 
-            <div class="input-group-text total"
-                        {$valor= 0}
-                    {foreach $productos as $producto}
-                        {$valor += $producto->total}
-                    {/foreach}
-                    <h2>valor</h2>
-            </div>
-        </div>
-        <div class="respuesta"></div>
-    </div>
-    <div class="col-md-6 col-xs-12">
-        <table>
-            <thead>
-                <tr>
-                    <th><i class="tamañoLogo fas fa-cart-arrow-down"></i></th>
-                </tr>
-                <tr>
-                    <th>Cantidad</th>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>total</th>
-                </tr>
-            </thead>
-            <tbody class="tablaDeProductos table">
-                    foreach $productos as $producto
-                        <tr>
-                            <td> producto->cantidad</td>
-                            <td> producto->nombre</td>
-                            <td> producto->precio_fk</td>
-                            <td> producto->total</td>
-                        </tr> 
-                        /foreach 
-                        esto trae todos los productos de compras que ingreso el usuario, una idea para hacer mas adelante 
-            </tbdy> 
-        </table>*}

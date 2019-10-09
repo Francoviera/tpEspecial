@@ -16,11 +16,17 @@
     
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
-        public function getProductoConCategoria(){
+        public function getProductosConCategorias(){
             $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, categorias.tipo AS categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id');
             $query->execute();
 
             return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+        public function getProductoConCategoria($id){
+            $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, inventario.id_categorias_fk, categorias.tipo AS categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id WHERE inventario.id= ?');
+            $query->execute([$id]);
+
+            return $query->fetch(PDO::FETCH_OBJ);
         }
         public function getProductosId($id){
             $query= $this->db->prepare('SELECT * FROM inventario WHERE id_categorias_fk= ?');

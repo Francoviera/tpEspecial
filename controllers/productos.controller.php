@@ -9,22 +9,21 @@
         private $modelProduct;
         private $view;
         private $authHelper;
-        
+        private $login;
 
         public function __construct() {        
             $this->modelCategory = new CategoryModel();
             $this->modelProduct = new ProductModel();
             $this->view = new ProductView();
             $this->authHelper= new AuthHelper();
-            // $this->authHelper->checkLogin();
+            $this->login= $this->authHelper->checkLogin();
         }
         public function mostrarHome(){
             $this->view->home();
         }
         public function mostrarCategorias(){
             $categorias= $this->modelCategory->getCategorias();
-            $login= $this->authHelper->checkLogin();
-            if($login === true){
+            if($this->login === true){
                 $this->view->categorias($categorias);;
             } else{
                 $this->view->categoriasUser($categorias);;
@@ -43,12 +42,12 @@
             $this->view->productosId($productos, $categoria);
         }
         public function mostrarProductos(){
-            $productoConCategoria= $this->modelProduct->getProductoConCategoria();
-            $login= $this->authHelper->checkLogin();
-            if($login === true){
-                $this->view->mostrarInventario($productoConCategoria);
+            $productoConCategoria= $this->modelProduct->getProductosConCategorias();
+            $categorias= $this->modelCategory->getCategorias();
+            if($this->login  === true){
+                $this->view->mostrarInventario($productoConCategoria, $categorias);
             } else{
-                $this->view->mostrarProductosUser($productoConCategoria);
+                $this->view->mostrarProductosUser($productoConCategoria, $categorias);
             }
         }
         public function eliminarProducto($params = null){
@@ -57,12 +56,21 @@
 
             header('Location: ../productos'); 
         }
+        public function redireccionEditarProducto($params = null){
+            $id = $params[':ID'];
+            $inventario= $this->modelProduct->getProductosConCategorias();
+            $producto= $this->modelProduct->getProductoConCategoria($id);
+            $categorias= $this->modelCategory->getCategorias();
+            $this->view->editarProductos($producto, $inventario, $categorias);
+        }
         public function editarProducto(){
             $nombre= $_POST["nombre"];
             $precio= $_POST["precio"];
             $cantidad= $_POST["cantidad"];
             $categoria= $_POST["categoria"];
             $id= $_POST["id"];
+   
+            var_dump($categoria);
             $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
 
             header("Location: productos"); 
@@ -99,11 +107,22 @@
                     header("Location: categorias"); 
             }
         }
+        public function redireccionEditarcategoria($params = null){
+            $id = $params[':ID'];
+            $categorias= $this->modelCategory->getCategorias();
+            $categoria= $this->modelCategory->getCategoriaId($id);
+            $this->view->editarCategorias($categorias, $categoria);
+        }
         public function editarCategoria(){
             $tipo= $_POST["tipo"];
             $desc= $_POST["desc"];
             $id= $_POST["id"];
-            $this->modelCategory->editar($tipo, $desc, $id);
+            if(isset($tipo) && isset($desc) && isset($id)){
+                $this->modelCategory->editar($tipo, $desc, $id);
+            }else{
+                $categorias= $this->modelCategory->getCategorias();
+                $this->view->categoriasUser($categorias, "¡¡complete todos los campos!!");
+            }
             header("Location: categorias");
         }
         public function eliminarCategoria($params = null){

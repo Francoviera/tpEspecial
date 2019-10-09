@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-09 06:31:54
-  from 'C:\xampp\htdocs\tpEspecial\templates\productos.tpl' */
+/* Smarty version 3.1.33, created on 2019-10-09 06:32:46
+  from 'C:\xampp\htdocs\tpEspecial\templates\edicionProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9d62bab27a48_92785178',
+  'unifunc' => 'content_5d9d62ee63aa92_60874704',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0f6866e3eb90e65af1739c3f69cd4ffa7ca0e0c3' => 
+    '529a6723fea74d0370a602551f3c622fc90f477b' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\productos.tpl',
-      1 => 1570595432,
+      0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\edicionProductos.tpl',
+      1 => 1570595450,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:templates/headerJS.tpl' => 1,
+    'file:templates/header.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9d62bab27a48_92785178 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5d9d62ee63aa92_60874704 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
     <div class="row">
@@ -84,13 +84,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h4>Ingrese producto</h4>
-            <form action="agregarProducto" method="post">
-                <input class="form-control" type="text" name="nombre">
-                <h4>precio</h4><input class="form-control" type="number" name="precio">
-                <h4>cantidad</h4><input class="form-control" type="number" name="cantidad">
+            <form action="formEditarProducto" method="post">
+                <h4>Editar producto</h4>
+                <input class="form-control valueNombre" type="text" name="nombre" value="<?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->nombre;?>
+">
+                <h4>precio</h4><input class="form-control valuePrecio" type="number" name="precio" value="<?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->precio;?>
+">
+                <h4>cantidad</h4><input class="form-control valueCantidad" type="number" name="cantidad" value="<?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->cantidad;?>
+">
                 <h4>categoria</h4>
                     <select class="form-control valueCategoria" type="number" name="categoria">
+                        <option selected value="<?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->id_categorias_fk;?>
+"><?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->categoria;?>
+<option>
                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
 if ($_from !== null) {
@@ -104,13 +110,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </select>
-                <button class="btn btn-outline-success" type="submit">agregar</button>
+                <h4>id-Producto</h4><input class="form-control valueId" type="number" name="id" value="<?php echo $_smarty_tpl->tpl_vars['productoEdit']->value->id;?>
+">
+                <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>
-        </div>
+        </div>  
     </div>  
 </div>
 <?php $_smarty_tpl->_subTemplateRender('file:templates/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
-<?php }
+}
 }

@@ -5,14 +5,15 @@
         public function login($user){
             session_start();
             $_SESSION['EMAIL']= $user->email;
-            $_SESSION['ID_USER']= $user->id;
+            //$_SESSION['ID_USER']= $user->id; no lo utilizo todavia
         }
         public function logout() {
                 session_start();
                 session_destroy();
         }
         public function checkLogin() {
-            session_start();
+            if (session_status() != PHP_SESSION_ACTIVE)
+                session_start();
             if (isset($_SESSION['EMAIL'])) {
                 return true;
             } else {
@@ -23,7 +24,10 @@
         public function getLoggedUserName() {
             if (session_status() != PHP_SESSION_ACTIVE)
                 session_start();
-            return $_SESSION['EMAIL'];
+            if (isset($_SESSION['EMAIL'])) 
+                return $_SESSION['EMAIL'];
+            else
+                return null;
         }    
     }
     
