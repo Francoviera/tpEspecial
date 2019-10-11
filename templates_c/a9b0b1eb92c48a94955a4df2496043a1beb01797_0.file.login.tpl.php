@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-09 07:00:20
+/* Smarty version 3.1.33, created on 2019-10-11 02:48:33
   from 'C:\xampp\htdocs\tpEspecial\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9d696482eed0_11065615',
+  'unifunc' => 'content_5d9fd161e46b35_45756447',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9b0b1eb92c48a94955a4df2496043a1beb01797' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\login.tpl',
-      1 => 1570597175,
+      1 => 1570749726,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:templates/headerJS.tpl' => 1,
+    'file:templates/header.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9d696482eed0_11065615 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5d9fd161e46b35_45756447 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container margen contenedor">
     <div class="row">

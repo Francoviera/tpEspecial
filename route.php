@@ -14,6 +14,7 @@
     $r->addRoute("singup", "POST", "LoginController", "singup");
     $r->addRoute("home", "GET", "ProductController", "mostrarHome");
     $r->addRoute("productos", "GET", "ProductController", "mostrarProductos");
+    $r->addRoute("detalleProducto/:ID", "GET", "ProductController", "mostrarDetalleProducto");
     $r->addRoute("agregarProducto", "POST", "ProductController", "agregarProducto");
     $r->addRoute("editarProducto/:ID", "GET", "ProductController", "redireccionEditarProducto");
     $r->addRoute("formEditarProducto", "POST", "ProductController", "editarProducto");

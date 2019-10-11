@@ -45,19 +45,22 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
+            {if $error}
+                <h4 class="bg bg-danger">{$error}</h4>
+            {/if}
             <form action="formEditarProducto" method="post">
                 <h4>Editar producto</h4>
-                <input class="form-control valueNombre" type="text" name="nombre" value="{$productoEdit->nombre}">
-                <h4>precio</h4><input class="form-control valuePrecio" type="number" name="precio" value="{$productoEdit->precio}">
-                <h4>cantidad</h4><input class="form-control valueCantidad" type="number" name="cantidad" value="{$productoEdit->cantidad}">
+                <input class="form-control" type="text" name="nombre" value="{$productoEdit->nombre}">
+                <h4>precio</h4><input class="form-control" type="number" name="precio" value="{$productoEdit->precio}">
+                <h4>cantidad</h4><input class="form-control" type="number" name="cantidad" value="{$productoEdit->cantidad}">
                 <h4>categoria</h4>
-                    <select class="form-control valueCategoria" type="number" name="categoria">
+                    <select class="form-control" type="number" name="categoria">
                         <option selected value="{$productoEdit->id_categorias_fk}">{$productoEdit->categoria}<option>
                         {foreach $categorias as $categoria}
                             <option value="{$categoria->id}">{$categoria->tipo}</option> 
                         {/foreach}
                     </select>
-                <h4>id-Producto</h4><input class="form-control valueId" type="number" name="id" value="{$productoEdit->id}">
+                <h4>id-Producto</h4><input class="form-control" type="number" name="id" value="{$productoEdit->id}">
                 <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>
         </div>  

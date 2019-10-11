@@ -13,10 +13,10 @@
             $this->smarty->assign('userName', $userName);
         }
 
-        public function mostrarInventario($inventario, $categorias){
+        public function mostrarInventario($inventario, $categorias, $error = null){
             $this->smarty->assign('titulo', 'Lista del Inventario');
             $this->smarty->assign('inventario', $inventario);
-            $this->smarty->assign('nameJS', 'productos');
+            $this->smarty->assign('error', $error);
             $this->smarty->assign('categorias', $categorias);
 
             $this->smarty->display('templates/productos.tpl');
@@ -28,18 +28,26 @@
 
             $this->smarty->display('templates/productosUser.tpl');
         }
-        public function editarProductos($producto, $inventario, $categorias){
+        public function detalleProducto($producto){
+            $this->smarty->assign('titulo', 'Lista de Productos');
+            $this->smarty->assign('producto', $producto);
+
+            $this->smarty->display('templates/detalleProducto.tpl');
+        }
+        public function editarProductos($producto, $inventario, $categorias, $error = null){
             $this->smarty->assign('titulo', 'Lista de Productos');
             $this->smarty->assign('productoEdit', $producto);
             $this->smarty->assign('inventario', $inventario);
             $this->smarty->assign('categorias', $categorias);
+            $this->smarty->assign('error', $error);
 
             $this->smarty->display('templates/edicionProductos.tpl');
         }
-        public function editarCategorias($categorias, $categoria){
+        public function editarCategorias($categorias, $categoria, $error = null){
             $this->smarty->assign('titulo', 'Lista de Categorias');
             $this->smarty->assign('categoriaEdit', $categoria);
             $this->smarty->assign('categorias', $categorias);
+            $this->smarty->assign('error', $error);
 
             $this->smarty->display('templates/edicionCategorias.tpl');
         }
@@ -52,7 +60,6 @@
         public function categorias($categorias, $error= null){
             $this->smarty->assign('titulo', 'Categorias');
             $this->smarty->assign('categorias', $categorias);
-            $this->smarty->assign('nameJS', 'categorias');
             $this->smarty->assign('error', $error);
 
             $this->smarty->display('templates/categorias.tpl');
@@ -67,9 +74,7 @@
             $this->smarty->assign('titulo', 'Categoria');
             $this->smarty->assign('productos', $productos);
             $this->smarty->assign('categoria', $categoria);
-            $this->smarty->assign('nameJS', 'categorias');
             
-
             $this->smarty->display('templates/id_categoria.tpl');
         }
     }

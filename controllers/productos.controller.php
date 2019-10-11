@@ -70,17 +70,26 @@
             $categoria= $_POST["categoria"];
             $id= $_POST["id"];
    
-            var_dump($categoria);
-            $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
-
-            header("Location: productos"); 
+            if(!empty($nombre) && !empty($precio) && isset($cantidad) && !empty($categoria) && !empty($id)){
+                $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
+                header("Location: productos"); 
+            }else{
+                $productoConCategoria= $this->modelProduct->getProductosConCategorias();
+                $categorias= $this->modelCategory->getCategorias();
+                $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario para poder editar");
+            }
+        }
+        public function mostrarDetalleProducto($params = null){
+            $id= $params[':ID'];
+            $producto= $this->modelProduct->getProductoConCategoria($id);
+            $this->view->detalleProducto($producto);
         }
         public function agregarProducto(){
             $nombre= $_POST["nombre"];
             $precio= $_POST["precio"];
             $cantidad= $_POST["cantidad"];
             $categoria= $_POST["categoria"];
-            // if ($nombre != '' && $cantidad != ''){
+            if (!empty($nombre) && !empty($cantidad) && !empty($precio) && !empty($categoria)){
                 $resultado= $this->modelProduct->verificarExistencia($nombre);
                 if($resultado === false){
                     $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria);
@@ -89,22 +98,28 @@
                     $this->modelProduct->actualizar($precio, $cantidad, $resultado->id);
                      header("Location: productos"); 
                 }
-            // }
-            // else{
-            //     $this->view->mostrarError();
-            // }  
+            }else{
+                $productoConCategoria= $this->modelProduct->getProductosConCategorias();
+                $categorias= $this->modelCategory->getCategorias();
+                $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario" );
+            }  
         }
         public function agregarCategoria(){
             $tipo= $_POST["tipo"];
             $desc= $_POST["desc"];
             $resultado= $this->modelCategory->verificarExistencia($tipo);
-            if($resultado === false){
-                var_dump($resultado);
-                $this->modelCategory->guardar($tipo, $desc);
-                    header("Location: categorias"); 
+            if(!empty($tipo) && !empty($desc)){
+                if($resultado === false){
+                    var_dump($resultado);
+                    $this->modelCategory->guardar($tipo, $desc);
+                        header("Location: categorias"); 
+                } else{
+                    $this->modelCategory->actualizar($tipo, $desc, $resultado->id);
+                        header("Location: categorias"); 
+                }
             } else{
-                $this->modelCategory->actualizar($tipo, $desc, $resultado->id);
-                    header("Location: categorias"); 
+                $categorias= $this->modelCategory->getCategorias();
+                $this->view->categorias($categorias, "Complete todos los campos del formulario");;
             }
         }
         public function redireccionEditarcategoria($params = null){
@@ -117,13 +132,13 @@
             $tipo= $_POST["tipo"];
             $desc= $_POST["desc"];
             $id= $_POST["id"];
-            if(isset($tipo) && isset($desc) && isset($id)){
+            if(!empty($tipo) && !empty($desc) && !empty($id)){
                 $this->modelCategory->editar($tipo, $desc, $id);
+                header("Location: categorias");
             }else{
                 $categorias= $this->modelCategory->getCategorias();
-                $this->view->categoriasUser($categorias, "¡¡complete todos los campos!!");
+                $this->view->categorias($categorias, "Complete todos los campos del formulario para poder editar");;
             }
-            header("Location: categorias");
         }
         public function eliminarCategoria($params = null){
             $id = $params[':ID'];

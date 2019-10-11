@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-07 07:03:57
+/* Smarty version 3.1.33, created on 2019-10-11 02:57:09
   from 'C:\xampp\htdocs\tpEspecial\templates\productosUser.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9ac73defff91_60738396',
+  'unifunc' => 'content_5d9fd365684407_61001229',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5ad2932672d4bbf66afb86629ac1b3bcf7e9b549' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\productosUser.tpl',
-      1 => 1570424636,
+      1 => 1570755427,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9ac73defff91_60738396 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d9fd365684407_61001229 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -42,6 +42,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                         <th>Precios</th>
                         <th>Cantidad</th>
                         <th>Categoria</th>
+                        <th>Detalle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
 </td>
                             <td> <?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
 </td>
+                            <td> 
+                                <a href="detalleProducto/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+"><button type="button" class="btn btn-primary">Ver</button></a>
+                            </td>
                         </tr>
                     <?php
 }

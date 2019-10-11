@@ -16,6 +16,7 @@
                         <th>Precios</th>
                         <th>Cantidad</th>
                         <th>Categoria</th>
+                        <th>Detalle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,9 @@
                             <td> {$producto->precio}</td>
                             <td> {$producto->cantidad}</td>
                             <td> {$producto->categoria}</td>
+                            <td> 
+                                <a href="detalleProducto/{$producto->id}"><button type="button" class="btn btn-primary">Ver</button></a>
+                            </td>
                         </tr>
                     {/foreach}
                 </tbody>

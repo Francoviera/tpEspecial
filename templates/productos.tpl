@@ -1,4 +1,4 @@
-{include 'templates/headerJS.tpl'}
+{include 'templates/header.tpl'}
 <div class="container-fluid margen contenedor">
     <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -45,6 +45,9 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
+            {if $error}
+                <h4 class="bg bg-danger">{$error}</h4>
+            {/if}
             <h4>Ingrese producto</h4>
             <form action="agregarProducto" method="post">
                 <input class="form-control" type="text" name="nombre">

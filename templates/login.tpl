@@ -1,4 +1,4 @@
-{include 'templates/headerJS.tpl'}
+{include 'templates/header.tpl'}
 <div class="container margen contenedor">
     <div class="row">
         <div class="col-md-6 col-xs-12">
