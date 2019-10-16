@@ -145,17 +145,4 @@
             $this->modelCategory->eliminar($id);
             header("Location: ../categorias");
         }
-
-
-
-        /*public function agregarAlCarrito(){
-            //los datos del input que ingresa el usuario
-            
-            $producto= $_POST["producto"];
-            $cantidad= $_POST["cantidad"];
-
-            $precio= $this->model->obtenerPrecio($producto);
-            $total= $this->model->calcularTotal($cantidad, $precio);
-            
-        }*/
     }

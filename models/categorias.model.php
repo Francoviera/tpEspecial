@@ -4,9 +4,9 @@
         private $db;
 
         public function __construct(){
-            $this->db = new PDO ('mysql:host=localhost;'      //definimos el tipo de base de datos que vamos a usar
-            .'dbname=db_compras;charset=utf8'           //la tabla de donde vamos a agarrar los datos
-            , 'root', '');                              //usuario--contraseña
+            $this->db = new PDO ('mysql:host=localhost;'     
+            .'dbname=db_compras;charset=utf8'           
+            , 'root', '');                            
          
         }
         public function guardar($tipo, $desc){

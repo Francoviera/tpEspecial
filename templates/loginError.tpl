@@ -12,6 +12,7 @@
                     <label for="exampleInputPassword1">Contraseña</label>
                     <input type="password" class="form-control" name="contraseña" id="exampleInputPassword1" placeholder="Introdusca su Contraseña">
                 </div>
+                <a href="registrarse"><button type="button" class="btn btn-secondary btnSingup">registrate</button></a>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
             </form>
         </div>

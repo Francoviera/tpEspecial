@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-09 07:23:33
+/* Smarty version 3.1.33, created on 2019-10-16 02:24:44
   from 'C:\xampp\htdocs\tpEspecial\templates\loginError.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9d6ed52402b0_48969022',
+  'unifunc' => 'content_5da6634c1a7a80_41014680',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3d472c00dbc4e0fb75bd39bb23c27aa56a4b24d6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\loginError.tpl',
-      1 => 1570598609,
+      1 => 1571185474,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9d6ed52402b0_48969022 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5da6634c1a7a80_41014680 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container margen contenedor">
@@ -38,6 +38,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                     <label for="exampleInputPassword1">Contraseña</label>
                     <input type="password" class="form-control" name="contraseña" id="exampleInputPassword1" placeholder="Introdusca su Contraseña">
                 </div>
+                <a href="registrarse"><button type="button" class="btn btn-secondary btnSingup">registrate</button></a>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
             </form>
         </div>

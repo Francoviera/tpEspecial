@@ -21,7 +21,6 @@
             $email= $_POST["email"];
             $password= $_POST["password"];
             $datosUser= $this->modelLogin->obtenerDatosUser($email);
-            //bug si pongo correo y contraseña vacio entra igual
             if(!empty($email) && password_verify($password, $datosUser->contraseña )){
                 $this->authHelper->login($datosUser);
 
@@ -40,7 +39,7 @@
         public function singup(){
             $email= $_POST["newEmail"];
             $password= $_POST["newPassword"];
-            if(!isset($email)){
+            if(!empty($email)){
                 $passwordHass= password_hash($password, PASSWORD_DEFAULT);
                 $this->modelLogin->crearUsuario($email, $passwordHass);
                 header('Location: login');
