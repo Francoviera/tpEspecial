@@ -51,17 +51,21 @@
             }
         }
         public function eliminarProducto($params = null){
-            $id = $params[':ID'];
-            $this->modelProduct->eliminar($id);
+            if($this->login  === true){
+                $id = $params[':ID'];
+                $this->modelProduct->eliminar($id);
 
-            header('Location: ../productos'); 
+                header('Location: ../productos'); 
+            }
         }
         public function redireccionEditarProducto($params = null){
-            $id = $params[':ID'];
-            $inventario= $this->modelProduct->getProductosConCategorias();
-            $producto= $this->modelProduct->getProductoConCategoria($id);
-            $categorias= $this->modelCategory->getCategorias();
-            $this->view->editarProductos($producto, $inventario, $categorias);
+            if($this->login  === true){
+                $id = $params[':ID'];
+                $inventario= $this->modelProduct->getProductosConCategorias();
+                $producto= $this->modelProduct->getProductoConCategoria($id);
+                $categorias= $this->modelCategory->getCategorias();
+                $this->view->editarProductos($producto, $inventario, $categorias);
+            }
         }
         public function editarProducto(){
             $nombre= $_POST["nombre"];
@@ -123,10 +127,12 @@
             }
         }
         public function redireccionEditarcategoria($params = null){
-            $id = $params[':ID'];
-            $categorias= $this->modelCategory->getCategorias();
-            $categoria= $this->modelCategory->getCategoriaId($id);
-            $this->view->editarCategorias($categorias, $categoria);
+            if($this->login  === true){
+                $id = $params[':ID'];
+                $categorias= $this->modelCategory->getCategorias();
+                $categoria= $this->modelCategory->getCategoriaId($id);
+                $this->view->editarCategorias($categorias, $categoria);
+            }
         }
         public function editarCategoria(){
             $tipo= $_POST["tipo"];
@@ -141,8 +147,10 @@
             }
         }
         public function eliminarCategoria($params = null){
-            $id = $params[':ID'];
-            $this->modelCategory->eliminar($id);
-            header("Location: ../categorias");
+            if($this->login  === true){
+                $id = $params[':ID'];
+                $this->modelCategory->eliminar($id);
+                header("Location: ../categorias");
+            }
         }
     }
