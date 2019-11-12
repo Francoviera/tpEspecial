@@ -5,7 +5,7 @@
         public function login($user){
             session_start();
             $_SESSION['EMAIL']= $user->email;
-            //$_SESSION['ID_USER']= $user->id; no lo utilizo todavia
+            $_SESSION['ADMIN']= $user->admin;
         }
         public function logout() {
                 session_start();
@@ -20,6 +20,15 @@
                 return false;
             }
                 
+        }
+        public function checkAdmin() {
+            if (session_status() != PHP_SESSION_ACTIVE)
+                session_start();
+            if (isset($_SESSION['EMAIL']) && $_SESSION['ADMIN'] === "1") {
+                return true;
+            } else {
+                return false;
+            }
         }
         public function getLoggedUserName() {
             if (session_status() != PHP_SESSION_ACTIVE)

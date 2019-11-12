@@ -6,6 +6,9 @@
             <div>
                 <a href="http://www.supermercadosdia.com.ar/contacto/">Contactanos</a>
             </div>
+            <div>
+                 <a href="loginAdmin"><i class="fas fa-user-lock"></i></a>
+            </div>
         </div>
         <div class="col-md-8 col-xs-8">
             <p>Pague con:</p>

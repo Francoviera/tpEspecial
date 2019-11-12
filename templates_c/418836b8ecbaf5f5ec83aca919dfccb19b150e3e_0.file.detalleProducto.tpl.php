@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-11 02:56:38
+/* Smarty version 3.1.33, created on 2019-11-12 21:57:35
   from 'C:\xampp\htdocs\tpEspecial\templates\detalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d9fd3463fe644_32601065',
+  'unifunc' => 'content_5dcb1cbf6f7223_99406835',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418836b8ecbaf5f5ec83aca919dfccb19b150e3e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\detalleProducto.tpl',
-      1 => 1570755393,
+      1 => 1573592247,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:templates/header.tpl' => 1,
+    'file:templates/headerJS.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5d9fd3463fe644_32601065 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5dcb1cbf6f7223_99406835 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
     <div class="row">
@@ -58,6 +58,17 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
                             <td class="text-warning">Producto No Disponible</td>
                         <?php }?>
                     </tr>
+                    <?php if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
+                        <tr>
+                            <div class="comentarios">
+                                
+                            </div>
+                            <form action="agregarComentario" method="post">
+                                <input type="text" name="comentario">
+                                <button type="submit">Agregar Comentario</button>
+                            <form>
+                        </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>

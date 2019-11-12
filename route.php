@@ -12,6 +12,7 @@
     $r->addRoute("logout", "GET", "LoginController", "logout");
     $r->addRoute("registrarse", "GET", "LoginController", "mostrarSingup");
     $r->addRoute("singup", "POST", "LoginController", "singup");
+
     $r->addRoute("home", "GET", "ProductController", "mostrarHome");
     $r->addRoute("productos", "GET", "ProductController", "mostrarProductos");
     $r->addRoute("detalleProducto/:ID", "GET", "ProductController", "mostrarDetalleProducto");

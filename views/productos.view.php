@@ -19,7 +19,7 @@
             $this->smarty->assign('error', $error);
             $this->smarty->assign('categorias', $categorias);
 
-            $this->smarty->display('templates/productos.tpl');
+            $this->smarty->display('templates/productosAdmin.tpl');
         }
         public function mostrarProductosUser($productos, $categorias){
             $this->smarty->assign('titulo', 'Lista de Productos');
@@ -28,9 +28,10 @@
 
             $this->smarty->display('templates/productosUser.tpl');
         }
-        public function detalleProducto($producto){
+        public function detalleProducto($producto, $userLogged){
             $this->smarty->assign('titulo', 'Lista de Productos');
             $this->smarty->assign('producto', $producto);
+            $this->smarty->assign('userLogged', $userLogged);
 
             $this->smarty->display('templates/detalleProducto.tpl');
         }
@@ -62,7 +63,7 @@
             $this->smarty->assign('categorias', $categorias);
             $this->smarty->assign('error', $error);
 
-            $this->smarty->display('templates/categorias.tpl');
+            $this->smarty->display('templates/categoriasAdmin.tpl');
         }
         public function categoriasUser($categorias){
             $this->smarty->assign('titulo', 'Categorias');

@@ -16,6 +16,7 @@
                         <th>Precios</th>
                         <th>Cantidad</th>
                         <th>Categoria</th>
+                        <th>Detalle</th>
                         <th>Edicion adm</th>
                     </tr>
                 </thead>
@@ -26,6 +27,9 @@
                             <td> {$producto->precio}</td>
                             <td> {$producto->cantidad}</td>
                             <td> {$producto->categoria}</td>
+                            <td> 
+                                <a href="detalleProducto/{$producto->id}"><button type="button" class="btn btn-primary">Ver</button></a>
+                            </td>
                             <td> 
                                 <a href="editarProducto/{$producto->id}"><button type="button" class="btnEdit btn btn-warning">Editar</button></a>
                                 <a href="eliminarProducto/{$producto->id}"><button type="button" class="btn btn-danger">Eliminar</button></a>

@@ -10,6 +10,7 @@
         private $view;
         private $authHelper;
         private $login;
+        private $checkAdmin;
 
         public function __construct() {        
             $this->modelCategory = new CategoryModel();
@@ -17,16 +18,17 @@
             $this->view = new ProductView();
             $this->authHelper= new AuthHelper();
             $this->login= $this->authHelper->checkLogin();
+            $this->checkAdmin= $this->authHelper->checkAdmin();
         }
         public function mostrarHome(){
             $this->view->home();
         }
         public function mostrarCategorias(){
             $categorias= $this->modelCategory->getCategorias();
-            if($this->login === true){
-                $this->view->categorias($categorias);;
+            if($this->checkAdmin === true){
+                $this->view->categorias($categorias);
             } else{
-                $this->view->categoriasUser($categorias);;
+                $this->view->categoriasUser($categorias);
             }
         }
         public function mostrarCategoria($id){
@@ -44,14 +46,14 @@
         public function mostrarProductos(){
             $productoConCategoria= $this->modelProduct->getProductosConCategorias();
             $categorias= $this->modelCategory->getCategorias();
-            if($this->login  === true){
+            if($this->checkAdmin === true){
                 $this->view->mostrarInventario($productoConCategoria, $categorias);
             } else{
                 $this->view->mostrarProductosUser($productoConCategoria, $categorias);
             }
         }
         public function eliminarProducto($params = null){
-            if($this->login  === true){
+            if($this->checkAdmin  === true){
                 $id = $params[':ID'];
                 $this->modelProduct->eliminar($id);
 
@@ -59,7 +61,7 @@
             }
         }
         public function redireccionEditarProducto($params = null){
-            if($this->login  === true){
+            if($this->checkAdmin  === true){
                 $id = $params[':ID'];
                 $inventario= $this->modelProduct->getProductosConCategorias();
                 $producto= $this->modelProduct->getProductoConCategoria($id);
@@ -86,7 +88,8 @@
         public function mostrarDetalleProducto($params = null){
             $id= $params[':ID'];
             $producto= $this->modelProduct->getProductoConCategoria($id);
-            $this->view->detalleProducto($producto);
+            $userLogged= $this->authHelper->checkLogin();
+            $this->view->detalleProducto($producto, $userLogged);
         }
         public function agregarProducto(){
             $nombre= $_POST["nombre"];
@@ -127,7 +130,7 @@
             }
         }
         public function redireccionEditarcategoria($params = null){
-            if($this->login  === true){
+            if($this->checkAdmin  === true){
                 $id = $params[':ID'];
                 $categorias= $this->modelCategory->getCategorias();
                 $categoria= $this->modelCategory->getCategoriaId($id);
@@ -147,7 +150,7 @@
             }
         }
         public function eliminarCategoria($params = null){
-            if($this->login  === true){
+            if($this->checkAdmin  === true){
                 $id = $params[':ID'];
                 $this->modelCategory->eliminar($id);
                 header("Location: ../categorias");

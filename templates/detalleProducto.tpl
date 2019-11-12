@@ -1,4 +1,4 @@
-{include 'templates/header.tpl'}
+{include 'templates/headerJS.tpl'}
 <div class="container-fluid margen contenedor">
     <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -28,6 +28,17 @@
                             <td class="text-warning">Producto No Disponible</td>
                         {/if}
                     </tr>
+                    {if $userLogged === true}
+                        <tr>
+                            <div class="comentarios">
+                                
+                            </div>
+                            <form action="agregarComentario" method="post">
+                                <input type="text" name="comentario">
+                                <button type="submit">Agregar Comentario</button>
+                            <form>
+                        </tr>
+                    {/if}
                 </tbody>
             </table>
         </div>
