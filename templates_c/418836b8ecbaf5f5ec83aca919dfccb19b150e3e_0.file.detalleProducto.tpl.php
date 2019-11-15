@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-12 21:57:35
+/* Smarty version 3.1.33, created on 2019-11-13 17:44:02
   from 'C:\xampp\htdocs\tpEspecial\templates\detalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dcb1cbf6f7223_99406835',
+  'unifunc' => 'content_5dcc32d2bf5dd1_98148138',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418836b8ecbaf5f5ec83aca919dfccb19b150e3e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\detalleProducto.tpl',
-      1 => 1573592247,
+      1 => 1573663441,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dcb1cbf6f7223_99406835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dcc32d2bf5dd1_98148138 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -58,19 +58,16 @@ $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->ca
                             <td class="text-warning">Producto No Disponible</td>
                         <?php }?>
                     </tr>
-                    <?php if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
-                        <tr>
-                            <div class="comentarios">
-                                
-                            </div>
-                            <form action="agregarComentario" method="post">
-                                <input type="text" name="comentario">
-                                <button type="submit">Agregar Comentario</button>
-                            <form>
-                        </tr>
-                    <?php }?>
                 </tbody>
             </table>
+            <?php if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
+                <div class="comentarios">       
+                </div>
+                <form action="agregarComentario" method="post">
+                    <input type="text" name="comentario">
+                    <button type="submit">Agregar Comentario</button>
+                <form>
+            <?php }?>
         </div>
         <div class="col-md-3 ocultar">
             <section class="publicidadFernet">

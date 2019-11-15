@@ -12,6 +12,10 @@
     $r->addRoute("logout", "GET", "LoginController", "logout");
     $r->addRoute("registrarse", "GET", "LoginController", "mostrarSingup");
     $r->addRoute("singup", "POST", "LoginController", "singup");
+    $r->addRoute("adminConfig", "GET", "LoginController", "adminConfig");
+    $r->addRoute("agregarAdmin/:ID", "GET", "LoginController", "otorgarPermisoAdmin");
+    $r->addRoute("removerAdmin/:ID", "GET", "LoginController", "removerPermisoAdmin");
+    $r->addRoute("eliminarUsuario/:ID", "GET", "LoginController", "eliminarUsuario");
 
     $r->addRoute("home", "GET", "ProductController", "mostrarHome");
     $r->addRoute("productos", "GET", "ProductController", "mostrarProductos");

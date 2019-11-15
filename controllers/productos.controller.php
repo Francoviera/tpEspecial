@@ -75,14 +75,18 @@
             $cantidad= $_POST["cantidad"];
             $categoria= $_POST["categoria"];
             $id= $_POST["id"];
-   
-            if(!empty($nombre) && !empty($precio) && isset($cantidad) && !empty($categoria) && !empty($id)){
-                $this->modelProduct->editar($nombre, $precio, $cantidad, $categoria, $id);
-                header("Location: productos"); 
-            }else{
-                $productoConCategoria= $this->modelProduct->getProductosConCategorias();
-                $categorias= $this->modelCategory->getCategorias();
-                $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario para poder editar");
+            
+            if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" 
+            || $_FILES['imagen']['type'] == "image/png" ) {
+                if(!empty($nombre) && !empty($precio) && isset($cantidad) && !empty($categoria) && !empty($id)){
+                    $imagen=$_FILES['imagen']['tmp_name'];
+                    $this->modelProduct->editar($nombre, $precio, $cantidad, $imagen, $categoria, $id);
+                    header("Location: productos"); 
+                }else{
+                    $productoConCategoria= $this->modelProduct->getProductosConCategorias();
+                    $categorias= $this->modelCategory->getCategorias();
+                    $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario para poder editar");
+                }
             }
         }
         public function mostrarDetalleProducto($params = null){
@@ -96,20 +100,27 @@
             $precio= $_POST["precio"];
             $cantidad= $_POST["cantidad"];
             $categoria= $_POST["categoria"];
-            if (!empty($nombre) && !empty($cantidad) && !empty($precio) && !empty($categoria)){
-                $resultado= $this->modelProduct->verificarExistencia($nombre);
-                if($resultado === false){
-                    $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria);
-                     header("Location: productos"); 
-                } else{
-                    $this->modelProduct->actualizar($precio, $cantidad, $resultado->id);
-                     header("Location: productos"); 
-                }
-            }else{
-                $productoConCategoria= $this->modelProduct->getProductosConCategorias();
-                $categorias= $this->modelCategory->getCategorias();
-                $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario" );
-            }  
+            //$imagen= $_POST["imagen"];
+
+            if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" 
+            || $_FILES['imagen']['type'] == "image/png" ) {
+                if (!empty($nombre) && !empty($cantidad) && !empty($precio) && !empty($categoria)){
+                    $resultado= $this->modelProduct->verificarExistencia($nombre);
+                    if($resultado === false){
+                        $imagen=$_FILES['imagen']['tmp_name'];
+                        $this->modelProduct->guardar($nombre, $precio, $cantidad, $categoria, $imagen);
+                        header("Location: productos"); 
+                    } else{
+                        $imagen=$_FILES['imagen']['tmp_name'];
+                        $this->modelProduct->actualizar($precio, $cantidad, $imagen, $resultado->id);
+                        header("Location: productos"); 
+                    }
+                }else{
+                    $productoConCategoria= $this->modelProduct->getProductosConCategorias();
+                    $categorias= $this->modelCategory->getCategorias();
+                    $this->view->mostrarInventario($productoConCategoria, $categorias, "Complete todos los campos del formulario" );
+                }  
+            }
         }
         public function agregarCategoria(){
             $tipo= $_POST["tipo"];

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-12 15:10:14
+/* Smarty version 3.1.33, created on 2019-11-13 23:32:30
   from 'C:\xampp\htdocs\tpEspecial\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dcabd463dbe54_87659376',
+  'unifunc' => 'content_5dcc847e9b78d1_64362515',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be8456736b551f21d62c39b9a96d2d55d2f97d07' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\footer.tpl',
-      1 => 1573567781,
+      1 => 1573684321,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dcabd463dbe54_87659376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dcc847e9b78d1_64362515 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer>
     <div class="row">
         <div class="col-md-4 col-xs-4">
@@ -30,7 +30,7 @@ function content_5dcabd463dbe54_87659376 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="http://www.supermercadosdia.com.ar/contacto/">Contactanos</a>
             </div>
             <div>
-                 <a href="loginAdmin"><i class="fas fa-user-lock"></i></a>
+                 <a href="adminConfig"><i class="fas fa-user-lock"></i></a>
             </div>
         </div>
         <div class="col-md-8 col-xs-8">

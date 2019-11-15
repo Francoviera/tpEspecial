@@ -53,7 +53,7 @@
                 <h4 class="bg bg-danger">{$error}</h4>
             {/if}
             <h4>Ingrese producto</h4>
-            <form action="agregarProducto" method="post">
+            <form action="agregarProducto" method="post" enctype="multipart/form-data">
                 <input class="form-control" type="text" name="nombre">
                 <h4>precio</h4><input class="form-control" type="number" name="precio">
                 <h4>cantidad</h4><input class="form-control" type="number" name="cantidad">
@@ -63,6 +63,10 @@
                             <option value="{$categoria->id}">{$categoria->tipo}</option> 
                         {/foreach}
                     </select>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">imagen</label>
+                    <input type="file" name="imagen">
+                </div>
                 <button class="btn btn-outline-success" type="submit">agregar</button>
             </form>
         </div>

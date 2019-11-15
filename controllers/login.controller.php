@@ -7,12 +7,13 @@
         private $viewLogin;
         private $modelLogin;
         private $authHelper;
-
+        private $adminLogged;
 
         public function __construct(){
             $this->viewLogin= new LoginView();
             $this->modelLogin= new LoginModel();
             $this->authHelper= new AuthHelper();
+            $this->adminLogged= $this->authHelper->checkAdmin();
         }
         public function mostrarLogin(){
             $this->viewLogin->mostrarLogin();
@@ -47,5 +48,25 @@
                 $this->viewLogin->mostrarLoginError("Complete todos los campos");
             }
         }
-    
+        public function adminConfig(){
+            if ($this->adminLogged === true){
+                $usuarios= $this->modelLogin->obtenerUsuariosRegistrados();
+                $this->viewLogin->mostrarUsuariosRegistrados($usuarios);
+            }
+        }
+        public function otorgarPermisoAdmin($params = null){
+            $id= $params[':ID'];
+            $this->modelLogin->agregarPermisoAdmin($id);
+            header("Location: ../adminConfig"); 
+        }
+        public function removerPermisoAdmin($params = null){
+            $id= $params[':ID'];
+            $this->modelLogin->removerPermisoAdmin($id);
+            header("Location: ../adminConfig"); 
+        }
+        public function eliminarUsuario($params = null){
+            $id= $params[':ID'];
+            $this->modelLogin->eliminarUsuario($id);
+            header("Location: ../adminConfig"); 
+        }
     }

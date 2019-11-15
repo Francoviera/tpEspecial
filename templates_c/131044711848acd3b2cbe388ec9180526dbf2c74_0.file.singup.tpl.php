@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-16 01:34:44
+/* Smarty version 3.1.33, created on 2019-11-13 23:40:17
   from 'C:\xampp\htdocs\tpEspecial\templates\singup.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5da657947804e9_35920328',
+  'unifunc' => 'content_5dcc8651a06504_67557591',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '131044711848acd3b2cbe388ec9180526dbf2c74' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\singup.tpl',
-      1 => 1570755613,
+      1 => 1573582006,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5da657947804e9_35920328 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dcc8651a06504_67557591 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container margen contenedor">

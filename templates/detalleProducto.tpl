@@ -28,19 +28,16 @@
                             <td class="text-warning">Producto No Disponible</td>
                         {/if}
                     </tr>
-                    {if $userLogged === true}
-                        <tr>
-                            <div class="comentarios">
-                                
-                            </div>
-                            <form action="agregarComentario" method="post">
-                                <input type="text" name="comentario">
-                                <button type="submit">Agregar Comentario</button>
-                            <form>
-                        </tr>
-                    {/if}
                 </tbody>
             </table>
+            {if $userLogged === true}
+                <div class="comentarios">       
+                </div>
+                <form action="agregarComentario" method="post">
+                    <input type="text" name="comentario">
+                    <button type="submit">Agregar Comentario</button>
+                <form>
+            {/if}
         </div>
         <div class="col-md-3 ocultar">
             <section class="publicidadFernet">

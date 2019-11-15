@@ -48,7 +48,7 @@
             {if $error}
                 <h4 class="bg bg-danger">{$error}</h4>
             {/if}
-            <form action="formEditarProducto" method="post">
+            <form action="formEditarProducto" method="post" enctype="multipart/form-data">
                 <h4>Editar producto</h4>
                 <input class="form-control" type="text" name="nombre" value="{$productoEdit->nombre}">
                 <h4>precio</h4><input class="form-control" type="number" name="precio" value="{$productoEdit->precio}">
@@ -60,6 +60,10 @@
                             <option value="{$categoria->id}">{$categoria->tipo}</option> 
                         {/foreach}
                     </select>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">imagen</label>
+                    <input type="file" name="imagen">
+                </div>
                 <h4>id-Producto</h4><input class="form-control" type="number" name="id" value="{$productoEdit->id}">
                 <button class="btn btn-outline-success" type="submit">Editar</button>
             </form>

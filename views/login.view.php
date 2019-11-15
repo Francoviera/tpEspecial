@@ -23,6 +23,11 @@
             $this->smarty->assign('titulo', 'Registrarse');
             $this->smarty->display('templates/singup.tpl');
         }
+        public function mostrarUsuariosRegistrados($usuarios){
+            $this->smarty->assign('titulo', 'Lista de Usuarios');
+            $this->smarty->assign('usuarios', $usuarios);
+            $this->smarty->display('templates/usuariosRegistrados.tpl');
+        }
         public function mostrarLoginError($error = null){
             $this->smarty->assign('titulo', 'Inicio de Secion');
             $this->smarty->assign('error', $error);
