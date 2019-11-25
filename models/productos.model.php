@@ -23,7 +23,7 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
         public function getProductoConCategoria($id){
-            $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, inventario.id_categorias_fk, categorias.tipo AS categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id WHERE inventario.id= ?');
+            $query= $this->db->prepare('SELECT inventario.id, inventario.nombre, inventario.cantidad, inventario.precio, inventario.imagen, inventario.id_categorias_fk, categorias.tipo AS categoria FROM inventario JOIN categorias ON inventario.id_categorias_fk = categorias.id WHERE inventario.id= ?');
             $query->execute([$id]);
 
             return $query->fetch(PDO::FETCH_OBJ);
@@ -81,33 +81,4 @@
                 $query->execute(array($nombre, $precio, $cantidad, $categoria, $id));
             }
         }
-
-
-
-
-        
-
-        // public function getCompras(){ 
-        //     $query = $this->db->prepare('SELECT * FROM compras');
-        //     $query->execute();
-
-        //     return $query->fetchAll(PDO::FETCH_OBJ);
-        // }
-        // public function getProducto($nombre){
-        //     $query= $this->db->prepare('SELECT FROM inventario WHERE nombre= ?');
-        //     $query->execute(array($nombre));
-
-        //     return $query->fetch(PDO::FETCH_OBJ);
-        // }
-        /*public function obtenerPrecio($nombre){
-            $producto= $this->get($nombre);
-            $valor= $producto->precio;
-
-            return $valor;
-        }
-        public function calcularTotal ($cantidad, $precio){
-            $total= $cantidad*$precio;
-
-            return $total;
-        }*/
     }

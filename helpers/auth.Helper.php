@@ -6,6 +6,7 @@
             session_start();
             $_SESSION['EMAIL']= $user->email;
             $_SESSION['ADMIN']= $user->admin;
+            $_SESSION['ID']= $user->id;
         }
         public function logout() {
                 session_start();
@@ -35,6 +36,14 @@
                 session_start();
             if (isset($_SESSION['EMAIL'])) 
                 return $_SESSION['EMAIL'];
+            else
+                return null;
+        }  
+        public function getLoggedUserId() {
+            if (session_status() != PHP_SESSION_ACTIVE)
+                session_start();
+            if (isset($_SESSION['ID'])) 
+                return $_SESSION['ID'];
             else
                 return null;
         }    

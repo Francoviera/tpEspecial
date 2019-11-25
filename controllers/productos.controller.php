@@ -93,7 +93,8 @@
             $id= $params[':ID'];
             $producto= $this->modelProduct->getProductoConCategoria($id);
             $userLogged= $this->authHelper->checkLogin();
-            $this->view->detalleProducto($producto, $userLogged);
+            $userLoggedId= $this->authHelper->getLoggedUserId();
+            $this->view->detalleProducto($producto, $userLogged, $userLoggedId);
         }
         public function agregarProducto(){
             $nombre= $_POST["nombre"];

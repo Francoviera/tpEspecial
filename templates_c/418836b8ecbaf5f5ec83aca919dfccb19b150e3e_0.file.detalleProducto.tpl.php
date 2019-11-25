@@ -1,28 +1,29 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-13 17:44:02
+/* Smarty version 3.1.33, created on 2019-11-25 23:26:27
   from 'C:\xampp\htdocs\tpEspecial\templates\detalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dcc32d2bf5dd1_98148138',
+  'unifunc' => 'content_5ddc551386b541_10756098',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418836b8ecbaf5f5ec83aca919dfccb19b150e3e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\detalleProducto.tpl',
-      1 => 1573663441,
+      1 => 1574720785,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:templates/headerJS.tpl' => 1,
+    'file:vue/comentarios.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dcc32d2bf5dd1_98148138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddc551386b541_10756098 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -35,6 +36,10 @@ $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->ca
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-9">
+            <div>
+                <img src="<?php echo $_smarty_tpl->tpl_vars['producto']->value->imagen;?>
+" alt="">
+            </div>
             <table class="table">
                 <thead>
                     <tr>
@@ -61,12 +66,21 @@ $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->ca
                 </tbody>
             </table>
             <?php if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
+                <div>
+                    <?php $_smarty_tpl->_subTemplateRender('file:vue/comentarios.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                </div>  
+
                 <div class="comentarios">       
                 </div>
-                <form action="agregarComentario" method="post">
-                    <input type="text" name="comentario">
-                    <button type="submit">Agregar Comentario</button>
-                <form>
+                <section id="crearComentario">
+                    <input type="hidden" id="idProducto" value=<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+>
+                    <input type="hidden"  id="idUsuario" value=<?php echo $_smarty_tpl->tpl_vars['idUser']->value;?>
+>
+                    <textarea name="textarea" rows="2" cols="100" id="comentario"></textarea>
+                    <button type="submit" id="btnAgregarComentario">Agregar Comentario</button>
+                <section>
             <?php }?>
         </div>
         <div class="col-md-3 ocultar">
