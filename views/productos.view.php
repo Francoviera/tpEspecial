@@ -28,11 +28,12 @@
 
             $this->smarty->display('templates/productosUser.tpl');
         }
-        public function detalleProducto($producto, $userLogged, $userLoggedId){
+        public function detalleProducto($producto, $userLogged, $userLoggedId, $userAdmin){
             $this->smarty->assign('titulo', 'Lista de Productos');
             $this->smarty->assign('producto', $producto);
             $this->smarty->assign('userLogged', $userLogged);
             $this->smarty->assign('idUser', $userLoggedId);
+            $this->smarty->assign('userAdmin', $userAdmin);
 
             $this->smarty->display('templates/detalleProducto.tpl');
         }

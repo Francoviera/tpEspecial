@@ -22,11 +22,12 @@
         public function subirComentario($params = []){
             $data=$this->getData();
 
-            $comentario= $data->comentario;
+            $texto= $data->texto;
+            $puntaje= $data->puntaje;
             $idProducto= $data->idProducto;
             $idUsuario=  $data->idUsuario;
 
-            $this->apiModel->cargarComentario($comentario, $idProducto, $idUsuario);
+            $this->apiModel->cargarComentario($texto, $puntaje, $idProducto, $idUsuario);
 
             if($data){
                 $this->apiView->response("Se cargo de forma exitosa", 200);
@@ -34,12 +35,6 @@
                 $this->apiView->response("Fallo al cargar el comentario", 404);
             }
 
-        }
-
-        public function editarComentario($texto, $id_producto, $id_usuario,$id){
-
-            $this->apiModel->editComentario($texto, $id_producto, $id_usuario, $id);
-            
         }
         
         public function eliminarComentario($params = null){
@@ -51,6 +46,28 @@
         public function obtenerComentarios($params = null){
             $id= $params[':ID'];
             $comentarios= $this->apiModel->getComentarios($id);
+
+            if($comentarios){
+                $this->apiView->response($comentarios, 200);
+            }
+            else{
+                $this->apiView->response(null, 404);
+            }
+        }
+        public function obtenerComentariosDesc($params = null){
+            $id= $params[':ID'];
+            $comentarios= $this->apiModel->getComentariosDesc($id);
+
+            if($comentarios){
+                $this->apiView->response($comentarios, 200);
+            }
+            else{
+                $this->apiView->response(null, 404);
+            }
+        }
+        public function obtenerComentariosAsc($params = null){
+            $id= $params[':ID'];
+            $comentarios= $this->apiModel->getComentariosAsc($id);
 
             if($comentarios){
                 $this->apiView->response($comentarios, 200);

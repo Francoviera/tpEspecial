@@ -7,9 +7,10 @@
     $r = new Router();
     // $r->addRoute("obtenerComentarios", "GET", "ApiProductController", "obtenerComentarios");
     // $r->addRoute("obtenerComentario/:ID", "GET", "ApiProductController", "obtenerComentarioId");
-    $r->addRoute("comentarios/:ID", "POST", "ApiProductController", "subirComentario");
-    $r->addRoute("comentario/:ID", "PUT", "ApiProductController", "editarComentario");
+    $r->addRoute("comentario", "POST", "ApiProductController", "subirComentario");
     $r->addRoute("comentario/:ID", "DELETE", "ApiProductController", "eliminarComentario");
     $r->addRoute("comentarios/:ID", "GET", "ApiProductController", "obtenerComentarios");
-
+    $r->addRoute("comentariosDesc/:ID", "GET", "ApiProductController", "obtenerComentariosDesc");
+    $r->addRoute("comentariosAsc/:ID", "GET", "ApiProductController", "obtenerComentariosAsc");
+    
     $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

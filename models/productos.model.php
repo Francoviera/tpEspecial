@@ -65,6 +65,11 @@
                 $query->execute(array($precio, $cantidad, $id));
             }
         }
+        public function eliminarImagen($id){
+            $imagen= " ";
+            $query= $this->db->prepare("UPDATE inventario SET imagen= ? WHERE id= ?");
+            $query->execute(array($imagen, $id));
+        }
         public function eliminar($id){
             $query= $this->db->prepare("DELETE FROM inventario WHERE id= ?");
             $query->execute(array($id));

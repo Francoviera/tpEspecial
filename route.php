@@ -30,6 +30,7 @@
     $r->addRoute("editarCategoria/:ID", "GET", "ProductController", "redireccionEditarCategoria");
     $r->addRoute("formEditarCategoria", "POST", "ProductController", "editarCategoria");
     $r->addRoute("categoria/:ID", "GET", "ProductController", "mostrarCategoriaId");
+    $r->addRoute("eliminarImagen/:ID", "GET", "ProductController", "eliminarImagen");
 
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
 ?>

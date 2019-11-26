@@ -94,7 +94,8 @@
             $producto= $this->modelProduct->getProductoConCategoria($id);
             $userLogged= $this->authHelper->checkLogin();
             $userLoggedId= $this->authHelper->getLoggedUserId();
-            $this->view->detalleProducto($producto, $userLogged, $userLoggedId);
+            $userAdmin= $this->authHelper->checkAdmin();
+            $this->view->detalleProducto($producto, $userLogged, $userLoggedId, $userAdmin);
         }
         public function agregarProducto(){
             $nombre= $_POST["nombre"];
@@ -166,6 +167,13 @@
                 $id = $params[':ID'];
                 $this->modelCategory->eliminar($id);
                 header("Location: ../categorias");
+            }
+        }
+        public function eliminarImagen($params = null){
+            if($this->checkAdmin  === true){
+                $id = $params[':ID'];
+                $this->modelProduct->eliminarImagen($id);
+                header("Location: ../productos");
             }
         }
     }

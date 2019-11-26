@@ -5,21 +5,109 @@ document.addEventListener("DOMContentLoaded", function(){
         data: {
             title: "Comentarios",
             loading: false,
-            comentarios: [] // es como el $this->smarty->assign("tareas", $tareas);
-        }
-    }), 
+            comentarios: [],
+            promedio: 0
+        }, 
 
-    methods: {
+        methods: {
+            agregarComentario: function (){
+                app.loading = true;
 
-    }
-});
-    let btnRefrescar= document.querySelector(".btnRefrescar");
-    btnRefrescar.addEventListener('click', getComentarios());
+                let data = {
+                    texto:  document.querySelector("#comentario").value,
+                    puntaje:  document.querySelector("#puntajeComentario").value,
+                    idUsuario:  document.querySelector("#idUsuario").value,
+                    idProducto:  document.querySelector("#idProducto").value
+                }
+                console.log(data);
+            
+                fetch("api/comentario", {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},       
+                    body: JSON.stringify(data) 
 
-    function getComentarios() {
-        // inicia la carga
-        app.loading = true;
+                })
+                .then(response => {
+                    alert("se cargo");
+                    getComentarios();
+                })   
+                .catch(error => console.log(error));
+            },
+            
+            
+            borrarComentario: function (event, id) {    
+                console.log(id);
+                fetch("api/comentario/"+ id, {
+                    "method": "DELETE"
+
+                }).then(response => {
+                    if (response.ok){
+                        getComentarios();
+                        console.log("Borrado exitoso");
+                    }
+                })
+                .catch(error => console.log(error));
+            },
+
+            getComentariosDesc: function (event){ 
+                event.preventDefault();
+                app.loading = true;
         
+                let id= document.querySelector("#idProducto").value;
+                console.log(id);
+                fetch("api/comentariosDesc/"+id)
+                .then(response => response.json())
+                .then(comentarios => {
+                    alert("hola");
+                    app.comentarios= comentarios;
+                    app.promedio= calcularPromedio(comentarios);
+                    console.log(app.promedio);
+                    app.loading = false;
+                })
+                .catch(error => console.log(error));
+            },
+            getComentariosAsc: function (event){ 
+                event.preventDefault();
+                app.loading = true;
+        
+                let id= document.querySelector("#idProducto").value;
+                console.log(id);
+                fetch("api/comentariosAsc/"+id)
+                .then(response => response.json())
+                .then(comentarios => {
+                    alert("hola");
+                    app.comentarios= comentarios;
+                    app.promedio= calcularPromedio(comentarios);
+                    console.log(app.promedio);
+                    app.loading = false;
+                })
+                .catch(error => console.log(error));
+            }
+        }
+    });
+    // function getComentariosDesc (event){ 
+    //     event.preventDefault();
+    //     app.loading = true;
+
+    //     let id= document.querySelector("#idProducto").value;
+    //     console.log(id);
+    //     fetch("api/comentariosDesc/"+id)
+    //     .then(response => response.json())
+    //     .then(comentarios => {
+    //         alert("hola");
+    //         app.comentarios= comentarios;
+    //         app.promedio= calcularPromedio(comentarios);
+    //         console.log(app.promedio);
+    //         app.loading = false;
+    //     })
+    //     .catch(error => console.log(error));
+    // }
+    let btnObtenerComentariosDesc= document.querySelector("#btnObtenerComentariosDesc");
+    // btnObtenerComentariosDesc.addEventListener('click', getComentariosDesc());
+
+    function getComentarios (){ 
+        app.loading = true;
+
         let id= document.querySelector("#idProducto").value;
         console.log(id);
         fetch("api/comentarios/"+id)
@@ -27,51 +115,29 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(comentarios => {
             alert("hola");
             app.comentarios= comentarios;
+            app.promedio= calcularPromedio(comentarios);
+            console.log(app.promedio);
             app.loading = false;
         })
         .catch(error => console.log(error));
     }
     getComentarios();
 
-    function agregarComentario(e) {
-        e.preventDefault();
-        // inicia la carga
-        app.loading = true;
+    let btnRefrescar= document.querySelector(".btnRefrescar");
+    // btnRefrescar.addEventListener('click', getComentarios());
+    
+    function calcularPromedio(comentarios){
+        let puntaje= 0;
+        let contador= 0;
+        let resultado= 0;
 
-        let data = {
-            texto:  document.querySelector("#comentario").value,
-            idUsuario:  document.querySelector("#idUsuario").value,
-            idProducto:  document.querySelector("#idProducto").value
+        for (let comentario of comentarios){
+            puntaje += Number(comentario.puntaje);
+            contador++;
         }
-        console.log(data);
-    
-        fetch("api/comentario", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},       
-            body: JSON.stringify(data) 
+        puntaje = puntaje/contador;
+        resultado= puntaje.toFixed(1);
 
-        })
-        .then(response => {
-            getComentarios();
-        })   
-        .catch(error => console.log(error));
-    }
-    let btnAgregarComentario= document.querySelector("#btnAgregarComentario");
-    btnAgregarComentario.addEventListener('click', agregarComentario(event));
-    
-
-    function borrarComentario() {
-        // inicia la carga
-        app.loading = true;
-
-        let id=  document.querySelector("input[name=descripcion]").value;
-    
-        fetch("api/borrar/comentario/"+ id)
-        .then(response => response.json())
-        .then(comentarios => {
-            app.comentarios  = comentarios;
-            //app.loading = false;
-        })
-        .catch(error => console.log(error));
+        return resultado;
     }
 });
