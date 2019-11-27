@@ -14,12 +14,6 @@
             $query= $this->db->prepare("INSERT INTO comentarios (texto, puntaje, id_producto_fk, id_usuario_fk) VALUES(?,?,?,?)");
             $query->execute([$texto, $puntaje, $id_producto, $id_usuario]);
         }
-
-        // public function editarComentario($texto, $id_producto, $id_usuario, $id){
-        //     $query= $this->db->prepare("UPDATE comentarios SET texto= ? WHERE id= ?");
-        //     $query->execute([$texto, $id_producto, $id_usuario, $id]);
-        // }
-
         public function deleteComentario($id){
             $query= $this->db->prepare("DELETE FROM comentarios WHERE id= ?");
             $query->execute([$id]);

@@ -1,17 +1,21 @@
 <?php
     include_once('models/api.model.php');
     include_once('api.view.php');
-    
+    include_once('helpers/auth.Helper.php');
 
     class ApiProductController{
         private $apiModel;
         private $apiView;
+        private $authHelper;
+        private $checkAdmin;
 
         private $data;
 
         public function __construct (){
             $this->apiModel = new ApiModel();
             $this->apiView = new ApiView();
+            $this->authHelper= new AuthHelper();
+            $this->checkAdmin= $this->authHelper->checkAdmin();
             $this->data = file_get_contents("php://input"); 
         }
 
@@ -38,9 +42,10 @@
         }
         
         public function eliminarComentario($params = null){
-            $id= $params[':ID'];
-
-            $this->apiModel->deleteComentario($id);
+            if($this->checkAdmin  === true){
+                $id= $params[':ID'];
+                $this->apiModel->deleteComentario($id);
+            }
         }
 
         public function obtenerComentarios($params = null){

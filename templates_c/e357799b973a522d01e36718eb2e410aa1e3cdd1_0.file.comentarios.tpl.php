@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-26 10:33:34
+/* Smarty version 3.1.33, created on 2019-11-27 06:45:39
   from 'C:\xampp\htdocs\tpEspecial\templates\vue\comentarios.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddcf16e5d88d5_21340320',
+  'unifunc' => 'content_5dde0d83230c35_77004646',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e357799b973a522d01e36718eb2e410aa1e3cdd1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\vue\\comentarios.tpl',
-      1 => 1574760811,
+      1 => 1574833536,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ddcf16e5d88d5_21340320 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dde0d83230c35_77004646 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
     
     <section id="section-comentarios">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">{{ title }}</h4>
-                        <button class="btnRefrescar" type="button" class="btn btn-primary btn-sm" >Refresh</button>
-                        <button type="button" id="btnObtenerComentariosDesc" @click="(event)=>{getComentariosDesc(event)}" >ordenar Comentarios desde el mejor</button>
-                        <button type="button" id="btnObtenerComentariosAsc" @click="(event)=>{getComentariosAsc(event)}" >ordenar Comentarios desde el peor</button>
+                        <button type="button" class="btnRefrescar">Refrescar</button>
+                        <button type="button" id="btnObtenerComentariosDesc" @click="(event)=>{getComentariosDesc(event)}">Ordenar Comentarios desde el mejor</button>
+                        <button type="button" id="btnObtenerComentariosAsc" @click="(event)=>{getComentariosAsc(event)}">Ordenar Comentarios desde el peor</button>
 
                     </div>
                     <div v-if="loading" class="card-body">
@@ -61,9 +61,10 @@ if ($_smarty_tpl->tpl_vars['userLogged']->value === true) {?>
 >
         
         <textarea name="textarea" rows="2" cols="100" id="comentario"></textarea>
-        <label for="">Puntaje</label>
-        <select name="" class="custom-select" id="puntajeComentario">
-            <option selected value="5"> Seleccione un valor </option>
+        <label>Puntaje</label>
+        <select class="custom-select" id="puntajeComentario">
+            <option selected value="0"> Seleccione un valor </option>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

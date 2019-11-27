@@ -43,6 +43,8 @@
             if(!empty($email)){
                 $passwordHass= password_hash($password, PASSWORD_DEFAULT);
                 $this->modelLogin->crearUsuario($email, $passwordHass);
+                $datosUser= $this->modelLogin->obtenerDatosUser($email);
+                $this->authHelper->login($datosUser);
                 header('Location: login');
             }else{
                 $this->viewLogin->mostrarLoginError("Complete todos los campos");

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-26 09:09:36
+/* Smarty version 3.1.33, created on 2019-11-27 06:26:26
   from 'C:\xampp\htdocs\tpEspecial\templates\detalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddcddc0ac57c7_03764126',
+  'unifunc' => 'content_5dde09029e1f16_44137786',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418836b8ecbaf5f5ec83aca919dfccb19b150e3e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpEspecial\\templates\\detalleProducto.tpl',
-      1 => 1574755760,
+      1 => 1574832383,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddcddc0ac57c7_03764126 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dde09029e1f16_44137786 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid margen contenedor">
@@ -40,8 +40,10 @@ $_smarty_tpl->_subTemplateRender('file:templates/headerJS.tpl', $_smarty_tpl->ca
                 <div>
                     <img src="<?php echo $_smarty_tpl->tpl_vars['producto']->value->imagen;?>
 " alt="">
+                    <?php if ($_smarty_tpl->tpl_vars['userAdmin']->value === true) {?>
                     <a href="eliminarImagen/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 "><button class="btn btn-danger" type="button">Eliminar Imagen</button></a>
+                    <?php }?>
                 </div>
                 <table class="table">
                     <thead>

@@ -4,9 +4,9 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">{{ title }}</h4>
-                        <button class="btnRefrescar" type="button" class="btn btn-primary btn-sm" >Refresh</button>
-                        <button type="button" id="btnObtenerComentariosDesc" @click="(event)=>{getComentariosDesc(event)}" >ordenar Comentarios desde el mejor</button>
-                        <button type="button" id="btnObtenerComentariosAsc" @click="(event)=>{getComentariosAsc(event)}" >ordenar Comentarios desde el peor</button>
+                        <button type="button" class="btnRefrescar">Refrescar</button>
+                        <button type="button" id="btnObtenerComentariosDesc" @click="(event)=>{getComentariosDesc(event)}">Ordenar Comentarios desde el mejor</button>
+                        <button type="button" id="btnObtenerComentariosAsc" @click="(event)=>{getComentariosAsc(event)}">Ordenar Comentarios desde el peor</button>
 
                     </div>
                     <div v-if="loading" class="card-body">
@@ -36,9 +36,10 @@
         <input type="hidden"  id="idUsuario" value={$idUser}>
         {literal}
         <textarea name="textarea" rows="2" cols="100" id="comentario"></textarea>
-        <label for="">Puntaje</label>
-        <select name="" class="custom-select" id="puntajeComentario">
-            <option selected value="5"> Seleccione un valor </option>
+        <label>Puntaje</label>
+        <select class="custom-select" id="puntajeComentario">
+            <option selected value="0"> Seleccione un valor </option>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

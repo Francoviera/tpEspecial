@@ -1,5 +1,6 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function(){
+    let btnRefrescar= document.querySelector(".btnRefrescar");
     let app = new Vue({
         el: "#section-comentarios",
         data: {
@@ -28,8 +29,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 })
                 .then(response => {
-                    alert("se cargo");
-                    getComentarios();
+                    if (response.ok){
+                        alert("se cargo de forma exitosa");
+                        getComentarios();
+                    }
                 })   
                 .catch(error => console.log(error));
             },
@@ -43,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 }).then(response => {
                     if (response.ok){
                         getComentarios();
-                        console.log("Borrado exitoso");
+                        alert("Borrado exitoso");
                     }
                 })
                 .catch(error => console.log(error));
@@ -102,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //     })
     //     .catch(error => console.log(error));
     // }
-    let btnObtenerComentariosDesc= document.querySelector("#btnObtenerComentariosDesc");
+    // let btnObtenerComentariosDesc= document.querySelector("#btnObtenerComentariosDesc");
     // btnObtenerComentariosDesc.addEventListener('click', getComentariosDesc());
 
     function getComentarios (){ 
@@ -123,8 +126,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     getComentarios();
 
-    let btnRefrescar= document.querySelector(".btnRefrescar");
-    // btnRefrescar.addEventListener('click', getComentarios());
+
+    btnRefrescar.addEventListener("click", getComentarios());
     
     function calcularPromedio(comentarios){
         let puntaje= 0;

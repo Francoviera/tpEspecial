@@ -12,7 +12,9 @@
             <div class="col-xs-12 col-md-9">
                 <div>
                     <img src="{$producto->imagen}" alt="">
+                    {if $userAdmin === true}
                     <a href="eliminarImagen/{$producto->id}"><button class="btn btn-danger" type="button">Eliminar Imagen</button></a>
+                    {/if}
                 </div>
                 <table class="table">
                     <thead>
